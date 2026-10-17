@@ -3,23 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Para Deisy ❤️</title>
-
-    <meta name="description"
-          content="Un pequeño universo creado con amor para Deisy.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* =====================================
-           CONFIGURACIÓN GENERAL
-        ===================================== */
-
         :root {
             --rosa: #ff6b9d;
             --rosa-claro: #ffb6d0;
@@ -42,20 +32,10 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--blanco);
-
             background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(161, 138, 255, 0.15),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 80% 60%,
-                    rgba(255, 107, 157, 0.13),
-                    transparent 35%
-                ),
+                radial-gradient(circle at 20% 20%, rgba(161,138,255,.15), transparent 35%),
+                radial-gradient(circle at 80% 60%, rgba(255,107,157,.13), transparent 35%),
                 var(--fondo);
-
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -74,9 +54,111 @@
             color: white;
         }
 
-        /* =====================================
-           FONDO ANIMADO
-        ===================================== */
+        /* PANTALLA INICIAL */
+
+        #pantallaAmor {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            padding: 24px;
+            background: white;
+            color: #38243b;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #pantallaAmor h2 {
+            font-size: clamp(32px, 7vw, 58px);
+            color: #d94f8c;
+        }
+
+        #caritaEntrada {
+            font-size: clamp(48px, 10vw, 76px);
+            animation: caritaBaila 1.8s ease-in-out infinite;
+        }
+
+        @keyframes caritaBaila {
+            0%, 100% { transform: rotate(-7deg) translateY(0); }
+            50% { transform: rotate(7deg) translateY(-8px); }
+        }
+
+        .botones-amor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            min-height: 70px;
+        }
+
+        .boton-amor {
+            position: relative;
+            z-index: 2;
+            min-height: 52px;
+            padding: 14px 28px;
+            border: 0;
+            border-radius: 999px;
+            font: 600 16px 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: width .35s, height .35s, transform .35s,
+                        border-radius .35s, font-size .35s;
+        }
+
+        #botonSi {
+            background: var(--rosa);
+            color: white;
+            box-shadow: 0 8px 25px #ff6b9d55;
+        }
+
+        #botonNo {
+            background: #f2edf1;
+            color: #6b5967;
+        }
+
+        #mensajeEntrada {
+            max-width: 560px;
+            min-height: 48px;
+            color: #765a70;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        #pantallaAmor.aceptada {
+            animation: salirEntrada .65s ease forwards;
+        }
+
+        @keyframes salirEntrada {
+            to {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+        .emoji-reaccion {
+            position: fixed;
+            z-index: 10000;
+            pointer-events: none;
+            animation: flotarEmoji 1.8s ease-out forwards;
+        }
+
+        @keyframes flotarEmoji {
+            from {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(.6);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-180px) rotate(35deg) scale(1.4);
+            }
+        }
+
+        /* FONDO ANIMADO */
 
         #universo {
             position: fixed;
@@ -90,76 +172,44 @@
             position: absolute;
             width: 3px;
             height: 3px;
-
             background: white;
             border-radius: 50%;
-
             animation: parpadear 3s infinite ease-in-out;
         }
 
         @keyframes parpadear {
-            0%, 100% {
-                opacity: 0.2;
-                transform: scale(0.7);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.5);
-            }
+            0%, 100% { opacity: .2; transform: scale(.7); }
+            50% { opacity: 1; transform: scale(1.5); }
         }
 
         .corazon-flotante {
             position: absolute;
             bottom: -60px;
-
             color: var(--rosa);
             opacity: 0;
-
             animation: subir linear forwards;
-
-            filter: drop-shadow(
-                0 0 10px rgba(255, 107, 157, 0.5)
-            );
+            filter: drop-shadow(0 0 10px #ff6b9d80);
         }
 
         @keyframes subir {
-            0% {
-                transform: translateY(0) rotate(0deg) scale(0.7);
-                opacity: 0;
-            }
-
-            15% {
-                opacity: 0.8;
-            }
-
-            85% {
-                opacity: 0.6;
-            }
-
-            100% {
-                transform: translateY(-115vh) rotate(35deg) scale(1.3);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) rotate(0) scale(.7); opacity: 0; }
+            15% { opacity: .8; }
+            85% { opacity: .6; }
+            100% { transform: translateY(-115vh) rotate(35deg) scale(1.3); opacity: 0; }
         }
 
-        /* =====================================
-           NAVEGACIÓN
-        ===================================== */
+        /* ENCABEZADO */
 
         header {
             position: relative;
             z-index: 2;
-
             width: 100%;
             padding: 25px 8%;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 15px;
-
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid #ffffff12;
         }
 
         .logo {
@@ -180,285 +230,172 @@
             text-align: right;
         }
 
-        /* =====================================
-           PORTADA
-        ===================================== */
+        /* PORTADA */
 
         .portada {
             position: relative;
             z-index: 1;
-
             min-height: 88vh;
-
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
             text-align: center;
-
             padding: 70px 20px 100px;
         }
 
         .etiqueta {
             display: inline-block;
-
             padding: 9px 20px;
             margin-bottom: 30px;
-
-            border: 1px solid rgba(255, 182, 208, 0.35);
+            border: 1px solid #ffb6d059;
             border-radius: 50px;
-
-            background: rgba(255,255,255,0.04);
-
+            background: #ffffff0a;
             color: var(--rosa-claro);
-
             font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
-
             animation: aparecer 1.2s ease both;
         }
 
         .corazon-central {
             position: relative;
-
             width: 115px;
             height: 115px;
-
             display: grid;
             place-items: center;
-
             margin-bottom: 35px;
-
-            border: 1px solid rgba(255, 182, 208, 0.3);
+            border: 1px solid #ffb6d04d;
             border-radius: 50%;
-
-            background: rgba(255, 107, 157, 0.08);
-
-            box-shadow:
-                0 0 35px rgba(255, 107, 157, 0.12),
-                inset 0 0 30px rgba(255, 107, 157, 0.08);
-
+            background: #ff6b9d14;
+            box-shadow: 0 0 35px #ff6b9d1f, inset 0 0 30px #ff6b9d14;
             animation: flotar 4s ease-in-out infinite;
         }
 
         .corazon-central::before {
             content: "";
-
             position: absolute;
             inset: -12px;
-
-            border: 1px solid rgba(255, 217, 142, 0.3);
+            border: 1px solid #ffd98e4d;
             border-radius: 50%;
-
             animation: girar 12s linear infinite;
         }
 
         .corazon-central::after {
             content: "✦";
-
             position: absolute;
             right: -12px;
             top: 10px;
-
             color: var(--dorado);
             font-size: 25px;
-
             animation: brillar 2s infinite;
         }
 
         .corazon-icono {
             font-size: 55px;
-
-            filter: drop-shadow(
-                0 0 20px rgba(255, 107, 157, 0.65)
-            );
-
+            filter: drop-shadow(0 0 20px #ff6b9da6);
             animation: latir 1.5s infinite;
         }
 
         @keyframes latir {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            15% {
-                transform: scale(1.16);
-            }
-
-            30% {
-                transform: scale(1);
-            }
-
-            45% {
-                transform: scale(1.12);
-            }
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.16); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.12); }
         }
 
         @keyframes flotar {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
 
         @keyframes girar {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
         @keyframes brillar {
-            0%, 100% {
-                opacity: 0.4;
-                transform: scale(0.8);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.3);
-            }
+            0%, 100% { opacity: .4; transform: scale(.8); }
+            50% { opacity: 1; transform: scale(1.3); }
         }
 
         h1 {
             font-size: clamp(42px, 9vw, 100px);
             font-weight: 400;
             line-height: 1.2;
-
             margin-bottom: 15px;
-
             animation: aparecer 1.4s ease both;
         }
 
         h1 .nombre {
             display: block;
-
             font-family: 'Great Vibes', cursive;
             font-size: clamp(75px, 15vw, 145px);
-
-            background: linear-gradient(
-                120deg,
-                #fff1f7,
-                #ff8eb6,
-                #ffd98e,
-                #d2baff
-            );
-
+            background: linear-gradient(120deg, #fff1f7, #ff8eb6, #ffd98e, #d2baff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-
-            filter: drop-shadow(
-                0 0 25px rgba(255, 107, 157, 0.15)
-            );
+            filter: drop-shadow(0 0 25px #ff6b9d26);
         }
 
         .subtitulo {
             max-width: 580px;
-
             margin: 15px auto 35px;
-
             color: #c8bed8;
-
             font-size: clamp(14px, 2vw, 17px);
             font-weight: 300;
             line-height: 2;
-
             animation: aparecer 1.8s ease both;
         }
 
         .boton {
             display: inline-block;
-
             padding: 15px 28px;
-
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid #ffffff33;
             border-radius: 50px;
-
-            background: linear-gradient(
-                120deg,
-                #ff6b9d,
-                #bc78e8
-            );
-
+            background: linear-gradient(120deg, #ff6b9d, #bc78e8);
             color: white;
-
             font-size: 13px;
             font-weight: 500;
-            letter-spacing: 0.5px;
-
+            letter-spacing: .5px;
             cursor: pointer;
-
-            box-shadow:
-                0 10px 35px rgba(255, 107, 157, 0.2);
-
-            transition:
-                transform 0.3s,
-                box-shadow 0.3s;
+            box-shadow: 0 10px 35px #ff6b9d33;
+            transition: transform .3s, box-shadow .3s;
         }
 
         .boton:hover {
             transform: translateY(-4px);
-
-            box-shadow:
-                0 15px 40px rgba(255, 107, 157, 0.4);
+            box-shadow: 0 15px 40px #ff6b9d66;
         }
 
         @keyframes aparecer {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* =====================================
-           SEPARADOR
-        ===================================== */
+        /* SEPARADORES Y SECCIONES */
 
         .separador {
             display: flex;
             align-items: center;
             justify-content: center;
-
             gap: 20px;
-
             margin: 0 auto 70px;
-
             color: var(--rosa-claro);
         }
 
         .separador span {
             width: 70px;
             height: 1px;
-
-            background: linear-gradient(
-                90deg,
-                transparent,
-                var(--rosa)
-            );
+            background: linear-gradient(90deg, transparent, var(--rosa));
         }
 
         .separador span:last-child {
             transform: rotate(180deg);
         }
 
-        /* =====================================
-           SECCIONES GENERALES
-        ===================================== */
-
         .seccion {
             position: relative;
             z-index: 1;
-
             padding: 35px 20px 100px;
         }
 
@@ -474,11 +411,8 @@
 
         .mini-titulo {
             display: block;
-
             margin-bottom: 15px;
-
             color: var(--rosa);
-
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
@@ -493,59 +427,39 @@
             color: var(--rosa-claro);
         }
 
-        /* =====================================
-           CARTA TRADICIONAL
-        ===================================== */
+        /* CARTA PRINCIPAL */
 
         .carta {
             position: relative;
-
             padding: clamp(28px, 6vw, 60px);
-
-            border: 1px solid rgba(255,255,255,0.11);
+            border: 1px solid #ffffff1c;
             border-radius: 25px;
-
-            background: linear-gradient(
-                135deg,
-                rgba(255,255,255,0.065),
-                rgba(255,255,255,0.02)
-            );
-
+            background: linear-gradient(135deg, #ffffff11, #ffffff05);
             backdrop-filter: blur(15px);
-
-            box-shadow:
-                0 25px 80px rgba(0,0,0,0.2),
-                inset 0 1px 0 rgba(255,255,255,0.05);
+            box-shadow: 0 25px 80px #0003, inset 0 1px 0 #ffffff0d;
         }
 
         .carta::before {
             content: "“";
-
             position: absolute;
             top: -15px;
             left: 20px;
-
             font-family: Georgia, serif;
             font-size: 100px;
-
-            color: rgba(255,107,157,0.2);
+            color: #ff6b9d33;
         }
 
         .saludo {
             margin-bottom: 25px;
-
             font-family: 'Great Vibes', cursive;
             font-size: 45px;
-
             color: var(--rosa-claro);
         }
 
         .texto-carta {
             color: #d8d0e4;
-
             font-size: 15px;
             font-weight: 300;
-
             line-height: 2.2;
         }
 
@@ -555,65 +469,44 @@
 
         .firma {
             margin-top: 35px;
-
             font-family: 'Great Vibes', cursive;
             font-size: 35px;
-
             text-align: right;
-
             color: var(--rosa-claro);
         }
 
         .firma span {
             display: block;
-
             margin-top: 5px;
-
             font-family: 'Poppins', sans-serif;
             font-size: 11px;
             letter-spacing: 2px;
-
             color: #b8a9cd;
         }
 
-        /* =====================================
-           CONTADOR DE NUESTRA RELACIÓN
-        ===================================== */
+        /* CONTADOR */
 
         .contador-amor {
             max-width: 750px;
             margin: 0 auto;
             padding: 40px 25px;
-
             text-align: center;
-
-            border: 1px solid rgba(255, 182, 208, 0.22);
+            border: 1px solid #ffb6d038;
             border-radius: 28px;
-
-            background:
-                radial-gradient(
-                    circle at top,
-                    rgba(255, 107, 157, 0.12),
-                    transparent 65%
-                ),
-                rgba(255, 255, 255, 0.025);
-
-            box-shadow:
-                0 20px 70px rgba(0, 0, 0, 0.15);
+            background: radial-gradient(circle at top, #ff6b9d1f, transparent 65%), #ffffff06;
+            box-shadow: 0 20px 70px #00000026;
         }
 
         .contador-corazon {
             font-size: 42px;
             margin-bottom: 15px;
-
             animation: latir 1.5s infinite;
         }
 
         .contador-etiqueta {
-            color: #ffb6d0;
+            color: var(--rosa-claro);
             font-size: 11px;
             letter-spacing: 4px;
-
             margin-bottom: 30px;
         }
 
@@ -625,55 +518,43 @@
 
         .contador-item {
             padding: 22px 8px;
-
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid #ffffff14;
             border-radius: 16px;
-
-            background: rgba(255, 255, 255, 0.035);
-
-            transition: transform 0.3s, border-color 0.3s;
+            background: #ffffff09;
+            transition: transform .3s, border-color .3s;
         }
 
         .contador-item:hover {
             transform: translateY(-4px);
-            border-color: rgba(255, 107, 157, 0.4);
+            border-color: #ff6b9d66;
         }
 
         .contador-item span {
             display: block;
-
             font-size: clamp(25px, 5vw, 38px);
             font-weight: 600;
-
             color: #ffe1ed;
             font-variant-numeric: tabular-nums;
         }
 
         .contador-item small {
             display: block;
-
             margin-top: 8px;
-
             color: #bdb2ce;
-
             font-size: 11px;
             letter-spacing: 1px;
         }
 
         .contador-mensaje {
             margin-top: 30px;
-
             color: #d8cde9;
-
             font-size: 13px;
             line-height: 2;
         }
 
         .contador-fecha {
             margin-top: 20px;
-
-            color: #ffd98e;
-
+            color: var(--dorado);
             font-size: 12px;
             letter-spacing: 3px;
         }
@@ -681,45 +562,33 @@
         .contador-aniversario {
             margin: 20px auto 0;
             max-width: 480px;
-
-            color: #ffb6d0;
+            color: var(--rosa-claro);
             font-size: 13px;
             line-height: 1.9;
         }
 
-        /* =====================================
-           PEQUEÑAS RAZONES
-        ===================================== */
+        /* RAZONES */
 
         .frases {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
-
             margin-top: 35px;
         }
 
         .frase {
             padding: 28px 18px;
-
-            border: 1px solid rgba(255,255,255,0.09);
+            border: 1px solid #ffffff17;
             border-radius: 18px;
-
-            background: rgba(255,255,255,0.025);
-
+            background: #ffffff06;
             text-align: center;
-
-            transition:
-                transform 0.3s,
-                background 0.3s,
-                border-color 0.3s;
+            transition: transform .3s, background .3s, border-color .3s;
         }
 
         .frase:hover {
             transform: translateY(-8px);
-
-            background: rgba(255,107,157,0.07);
-            border-color: rgba(255,107,157,0.3);
+            background: #ff6b9d12;
+            border-color: #ff6b9d4d;
         }
 
         .frase-icono {
@@ -730,24 +599,19 @@
 
         .frase h3 {
             margin-bottom: 10px;
-
             font-size: 14px;
             font-weight: 500;
-
             color: #ffe2ee;
         }
 
         .frase p {
             color: #bdb2ce;
-
             font-size: 12px;
             font-weight: 300;
             line-height: 1.9;
         }
 
-        /* =====================================
-           CARTA INTERACTIVA Y SOBRE
-        ===================================== */
+        /* SOBRE INTERACTIVO */
 
         .seccion-interactiva {
             padding-top: 0;
@@ -758,82 +622,56 @@
             flex-direction: column;
             align-items: center;
             gap: 30px;
-
             width: 100%;
         }
 
         .sobre-animado {
             position: relative;
-
             width: min(340px, 100%);
             height: 220px;
-
             padding: 0;
-
-            border: 1px solid rgba(255, 182, 208, 0.4);
+            border: 1px solid #ffb6d066;
             border-radius: 12px;
-
             background: #3a1938;
             color: white;
-
             cursor: pointer;
-
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 35px rgba(255, 107, 157, 0.1);
-
-            transition: transform 0.35s, box-shadow 0.35s;
-
+            box-shadow: 0 20px 60px #0000004d, 0 0 35px #ff6b9d1a;
+            transition: transform .35s, box-shadow .35s;
             isolation: isolate;
         }
 
         .sobre-animado:hover {
             transform: translateY(-6px);
-
-            box-shadow:
-                0 25px 65px rgba(0, 0, 0, 0.35),
-                0 0 40px rgba(255, 107, 157, 0.2);
+            box-shadow: 0 25px 65px #00000059, 0 0 40px #ff6b9d33;
         }
 
         .sobre-cuerpo {
             position: absolute;
             inset: 0;
-
             overflow: hidden;
             border-radius: 11px;
-
-            background: linear-gradient(
-                145deg,
-                #7d315f,
-                #451c45
-            );
-
+            background: linear-gradient(145deg, #7d315f, #451c45);
             z-index: 1;
         }
 
         .sobre-cuerpo::before,
         .sobre-cuerpo::after {
             content: "";
-
             position: absolute;
             bottom: 0;
-
             width: 0;
             height: 0;
-
             border-style: solid;
         }
 
         .sobre-cuerpo::before {
             left: 0;
-
             border-width: 110px 0 0 170px;
             border-color: transparent transparent transparent #a44c79;
         }
 
         .sobre-cuerpo::after {
             right: 0;
-
             border-width: 0 0 110px 170px;
             border-color: transparent transparent #6d2858 transparent;
         }
@@ -841,75 +679,51 @@
         .sobre-solapa {
             position: absolute;
             inset: 0 0 auto;
-
             height: 120px;
-
-            background: linear-gradient(
-                145deg,
-                #d66a9d,
-                #8b3a75
-            );
-
+            background: linear-gradient(145deg, #d66a9d, #8b3a75);
             clip-path: polygon(0 0, 100% 0, 50% 100%);
             transform-origin: top center;
-
-            transition: transform 0.65s ease;
-
+            transition: transform .65s ease;
             z-index: 3;
         }
 
         .sobre-corazon {
             position: absolute;
-
             left: 50%;
             top: 43%;
-
             transform: translate(-50%, -50%);
-
             color: #ffe3ed;
             font-size: 43px;
-
-            text-shadow:
-                0 0 20px rgba(255, 182, 208, 0.65);
-
+            text-shadow: 0 0 20px #ffb6d0a6;
             animation: latir 1.5s infinite;
-
             z-index: 4;
         }
 
         .sobre-texto {
             position: absolute;
-
             left: 0;
             right: 0;
             bottom: 37px;
-
             font-family: 'Great Vibes', cursive;
             font-size: 32px;
-
             color: #fff0f6;
-
             z-index: 4;
         }
 
         .sobre-instruccion {
             position: absolute;
-
             left: 0;
             right: 0;
             bottom: -35px;
-
             color: #c8bed8;
             font-size: 11px;
             letter-spacing: 1px;
-
             white-space: nowrap;
-
             z-index: 5;
         }
 
         .sobre-animado.abriendo {
-            animation: desaparecerSobre 0.6s ease forwards;
+            animation: desaparecerSobre .6s ease forwards;
         }
 
         .sobre-animado.abriendo .sobre-solapa {
@@ -917,73 +731,39 @@
         }
 
         @keyframes desaparecerSobre {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-25px) scale(0.9);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-25px) scale(.9); opacity: 0; }
         }
 
-        /* =====================================
-           PAPEL DE LA CARTA ABIERTA
-        ===================================== */
+        /* CARTA ABIERTA */
 
         .carta-abierta {
             display: none;
-
             width: min(650px, 100%);
-
             padding: clamp(25px, 6vw, 55px);
-
-            border: 1px solid rgba(255, 217, 142, 0.35);
+            border: 1px solid #ffd98e59;
             border-radius: 8px;
-
             color: #573b50;
-
             background:
-                radial-gradient(
-                    circle at 100% 0,
-                    rgba(255, 215, 225, 0.7),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    145deg,
-                    #fff9f0,
-                    #ffedf4
-                );
-
-            box-shadow:
-                0 25px 80px rgba(0, 0, 0, 0.3);
-
+                radial-gradient(circle at 100% 0, #ffd7e2b3, transparent 35%),
+                linear-gradient(145deg, #fff9f0, #ffedf4);
+            box-shadow: 0 25px 80px #0000004d;
             position: relative;
         }
 
         .carta-abierta.visible {
             display: block;
-            animation: aparecerCarta 0.9s ease both;
+            animation: aparecerCarta .9s ease both;
         }
 
         @keyframes aparecerCarta {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.96);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(30px) scale(.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .carta-decoracion {
             margin-bottom: 28px;
-
             text-align: center;
-
             color: #c65c87;
             letter-spacing: 9px;
             font-size: 20px;
@@ -997,11 +777,9 @@
 
         .carta-titulo {
             margin: 8px 0 25px;
-
             font-family: 'Great Vibes', cursive;
             font-size: clamp(42px, 8vw, 60px);
             font-weight: 400;
-
             color: #a64c77;
         }
 
@@ -1020,20 +798,39 @@
             font-weight: 500;
         }
 
+        .foto-nosotras {
+            margin: 30px auto 10px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .foto-nosotras img {
+            display: block;
+            width: min(100%, 420px);
+            max-height: 460px;
+            object-fit: cover;
+            margin: 0 auto 10px;
+            border: 5px solid white;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px #a64c7730;
+        }
+
+        .foto-nosotras figcaption {
+            color: #a64c77;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
         .carta-firma {
             margin-top: 35px;
-
             font-family: 'Great Vibes', cursive;
             font-size: 34px;
-
             color: #a64c77;
         }
 
         .carta-firma span {
             display: block;
-
             margin-top: 8px;
-
             font-family: 'Poppins', sans-serif;
             font-size: 11px;
             letter-spacing: 2px;
@@ -1042,22 +839,16 @@
         .carta-final {
             margin-top: 35px;
             padding-top: 20px;
-
-            border-top: 1px solid rgba(166, 76, 119, 0.2);
-
+            border-top: 1px solid #a64c7733;
             text-align: center;
-
             color: #a64c77;
-
             font-size: 12px;
             letter-spacing: 3px;
         }
 
         .carta-final span {
             display: inline-block;
-
             margin-top: 8px;
-
             font-size: 11px;
             letter-spacing: 0;
         }
@@ -1065,101 +856,92 @@
         .boton-cerrar {
             display: block;
             margin: 30px auto 0;
-
             border: none;
         }
 
-        /* =====================================
-           MENSAJE SECRETO
-        ===================================== */
+        /* MENSAJE SECRETO */
 
         .seccion-secreta {
             padding-top: 0;
             text-align: center;
         }
 
-        .sobre {
+        .sobre-secreto {
             position: relative;
-
             width: 100%;
             max-width: 650px;
-
             margin: 0 auto;
             padding: 45px 25px;
-
-            border: 1px solid rgba(255,217,142,0.2);
+            border: 1px solid #ffd98e33;
             border-radius: 25px;
-
-            background:
-                radial-gradient(
-                    circle at top,
-                    rgba(255,217,142,0.08),
-                    transparent 70%
-                ),
-                rgba(255,255,255,0.025);
+            background: radial-gradient(circle at top, #ffd98e14, transparent 70%), #ffffff06;
         }
 
         .sobre-icono {
             margin-bottom: 20px;
             font-size: 45px;
-
             animation: flotar 3s infinite ease-in-out;
         }
 
-        .sobre h2 {
+        .sobre-secreto h2 {
             margin-bottom: 12px;
-
             font-size: 27px;
             font-weight: 400;
         }
 
-        .sobre > p {
+        .sobre-secreto > p {
             margin-bottom: 25px;
-
             color: #bdb2ce;
-
             font-size: 13px;
             line-height: 1.9;
         }
 
         #mensajeSecreto {
             display: none;
-
             margin-top: 30px;
             padding: 25px;
-
             border-radius: 15px;
-            background: rgba(255,107,157,0.07);
-
+            background: #ff6b9d12;
             color: #ffe0ed;
-
             font-size: 14px;
             line-height: 2;
         }
 
         #mensajeSecreto.visible {
             display: block;
-            animation: aparecer 0.8s ease both;
+            animation: aparecer .8s ease both;
         }
 
-        /* =====================================
-           PIE DE PÁGINA
-        ===================================== */
+        /* EXPLOSIÓN DE CORAZONES */
+
+        .particula {
+            position: fixed;
+            z-index: 10000;
+            pointer-events: none;
+            font-size: 20px;
+            animation: explosion 1s ease-out forwards;
+        }
+
+        @keyframes explosion {
+            0% { opacity: 1; transform: translate(0, 0) scale(.5); }
+            100% {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) rotate(180deg) scale(1.5);
+            }
+        }
+
+        /* PIE DE PÁGINA */
 
         footer {
             position: relative;
             z-index: 1;
-
             padding: 35px 20px;
-
-            border-top: 1px solid rgba(255,255,255,0.07);
-
+            border-top: 1px solid #ffffff12;
             text-align: center;
         }
 
         footer p {
             color: #9e91b5;
-
             font-size: 11px;
             line-height: 2;
             letter-spacing: 1px;
@@ -1167,149 +949,47 @@
 
         .footer-corazon {
             display: inline-block;
-
             color: var(--rosa);
-
             animation: latir 1.5s infinite;
         }
 
-        /* =====================================
-           EXPLOSIÓN DE CORAZONES
-        ===================================== */
-
-        .particula {
-            position: fixed;
-
-            z-index: 10;
-            pointer-events: none;
-
-            font-size: 20px;
-
-            animation: explosion 1s ease-out forwards;
-        }
-
-        @keyframes explosion {
-            0% {
-                opacity: 1;
-                transform: translate(0, 0) scale(0.5);
-            }
-
-            100% {
-                opacity: 0;
-                transform:
-                    translate(var(--x), var(--y))
-                    rotate(180deg)
-                    scale(1.5);
-            }
-        }
-
-        /* =====================================
-           DISEÑO RESPONSIVE
-        ===================================== */
+        /* DISEÑO PARA CELULARES */
 
         @media (max-width: 650px) {
-            header {
-                padding: 20px;
-            }
+            header { padding: 20px; }
+            .logo { font-size: 17px; }
+            .navegacion { font-size: 9px; letter-spacing: 1px; }
+            .portada { min-height: 85vh; padding: 60px 20px 80px; }
+            .corazon-central { width: 95px; height: 95px; }
+            .corazon-icono { font-size: 45px; }
+            .frases { grid-template-columns: 1fr; gap: 15px; }
+            .frase { padding: 25px; }
+            .carta { padding: 35px 25px; }
+            .texto-carta { font-size: 13px; }
+            .saludo { font-size: 38px; }
+            .contador-cuadros { gap: 8px; }
+            .contador-item { padding: 18px 4px; }
+            .contador-item small { font-size: 10px; letter-spacing: 0; }
+        }
 
-            .logo {
-                font-size: 17px;
-            }
-
-            .navegacion {
-                font-size: 9px;
-                letter-spacing: 1px;
-            }
-
-            .portada {
-                min-height: 85vh;
-                padding: 60px 20px 80px;
-            }
-
-            .corazon-central {
-                width: 95px;
-                height: 95px;
-            }
-
-            .corazon-icono {
-                font-size: 45px;
-            }
-
-            .frases {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .frase {
-                padding: 25px;
-            }
-
-            .carta {
-                padding: 35px 25px;
-            }
-
-            .texto-carta {
-                font-size: 13px;
-            }
-
-            .saludo {
-                font-size: 38px;
-            }
-
-            .contador-cuadros {
-                gap: 8px;
-            }
-
-            .contador-item {
-                padding: 18px 4px;
-            }
-
-            .contador-item small {
-                font-size: 10px;
-                letter-spacing: 0;
-            }
+        @media (max-width: 480px) {
+            .boton-amor { padding: 13px 22px; }
+            .foto-nosotras img { max-height: 340px; }
         }
 
         @media (max-width: 360px) {
-            .etiqueta {
-                font-size: 9px;
-                letter-spacing: 1px;
-            }
-
-            .contador-amor {
-                padding: 30px 12px;
-            }
-
-            .contador-item span {
-                font-size: 23px;
-            }
-
-            .sobre-animado {
-                height: 200px;
-            }
-
-            .sobre-cuerpo::before {
-                border-width: 100px 0 0 150px;
-            }
-
-            .sobre-cuerpo::after {
-                border-width: 0 0 100px 150px;
-            }
-
-            .carta-contenido {
-                font-size: 13px;
-            }
+            .etiqueta { font-size: 9px; letter-spacing: 1px; }
+            .contador-amor { padding: 30px 12px; }
+            .contador-item span { font-size: 23px; }
+            .sobre-animado { height: 200px; }
+            .sobre-cuerpo::before { border-width: 100px 0 0 150px; }
+            .sobre-cuerpo::after { border-width: 0 0 100px 150px; }
+            .carta-contenido { font-size: 13px; }
         }
 
-        /* =====================================
-           MOVIMIENTO REDUCIDO
-        ===================================== */
-
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
                 animation-iteration-count: 1 !important;
                 scroll-behavior: auto !important;
             }
@@ -1319,6 +999,19 @@
 
 <body>
 
+    <!-- PANTALLA DE ENTRADA -->
+
+    <section id="pantallaAmor" aria-labelledby="preguntaAmor">
+        <div id="caritaEntrada" aria-hidden="true">🥺💗</div>
+        <h2 id="preguntaAmor">¿Me amas?</h2>
+        <p id="mensajeEntrada">Piénsalo bien, Deisy... esta pregunta viene con trampa de amorcito. 🐥</p>
+
+        <div class="botones-amor">
+            <button type="button" class="boton-amor" id="botonSi">Sí, obvio 💖</button>
+            <button type="button" class="boton-amor" id="botonNo">No 😈</button>
+        </div>
+    </section>
+
     <!-- FONDO ANIMADO -->
 
     <div id="universo" aria-hidden="true"></div>
@@ -1326,13 +1019,8 @@
     <!-- ENCABEZADO -->
 
     <header>
-        <div class="logo">
-            Para <span>Deisy</span> ♥
-        </div>
-
-        <div class="navegacion">
-            Un pequeño universo para ti
-        </div>
+        <div class="logo">Para <span>Deisy</span> ♥</div>
+        <div class="navegacion">Un pequeño universo para ti</div>
     </header>
 
     <main>
@@ -1340,10 +1028,7 @@
         <!-- PORTADA -->
 
         <section class="portada">
-
-            <div class="etiqueta">
-                ✨ Hecho con amor, solo para ti ✨
-            </div>
+            <div class="etiqueta">✨ Hecho con amor, solo para ti ✨</div>
 
             <div class="corazon-central">
                 <div class="corazon-icono">❤️</div>
@@ -1360,282 +1045,146 @@
                 Esa persona eres tú, Deisy. 💗
             </p>
 
-            <button
-                type="button"
-                class="boton"
-                id="botonPortada">
-
+            <button type="button" class="boton" id="botonPortada">
                 Descubre tu pequeño universo ♥
-
             </button>
-
         </section>
 
         <div class="separador" aria-hidden="true">
-            <span></span>
-            ✧
-            <span></span>
+            <span></span> ✧ <span></span>
         </div>
 
         <!-- CARTA PRINCIPAL -->
 
         <section class="seccion" id="carta">
-
             <div class="contenedor">
 
                 <div class="encabezado-seccion">
-                    <span class="mini-titulo">
-                        Unas palabras desde el corazón
-                    </span>
-
-                    <h2 class="titulo-seccion">
-                        Mi querida <span>Deisy</span>
-                    </h2>
+                    <span class="mini-titulo">Unas palabras desde el corazón</span>
+                    <h2 class="titulo-seccion">Mi querida <span>Deisy</span></h2>
                 </div>
 
                 <article class="carta">
-
-                    <div class="saludo">
-                        Hola, mi niña bonita...
-                    </div>
+                    <div class="saludo">Hola, mi niña bonita...</div>
 
                     <div class="texto-carta">
-
                         <p>
-                            Tal vez esta página no sea el regalo más
-                            grande del mundo, pero tiene algo que para
-                            mí vale muchísimo: un pedacito de mi tiempo,
-                            de mi imaginación y de todo el cariño que
-                            quiero dedicarte.
+                            Hola, amorcito. 💗 Quería hacerte algo bonito, de esos detallitos que no cuestan una fortuna
+                            pero sí llevan un montón de cariño. Así que hice este rinconcito para ti, con corazones,
+                            cursilerías y todo lo que se me ocurrió pensando en nosotras.
                         </p>
 
                         <p>
-                            Quería crear algo diferente, algo que
-                            pudieras abrir y que te recordara lo
-                            especial que eres para mí. Por eso cada
-                            pequeño corazón, cada luz y cada detalle
-                            de esta página están aquí para ti.
+                            Me encanta tenerte en mi vida, compartir bobadas contigo y encontrar razones para sonreír.
+                            No tenemos que tener días perfectos: con que podamos seguir acompañándonos, hablando de todo
+                            y creando recuerdos juntas, yo ya soy feliz.
                         </p>
 
                         <p>
-                            Deisy, hay personas que llegan a nuestras
-                            vidas y hacen que los días normales tengan
-                            algo extraordinario. Personas que pueden
-                            sacarnos una sonrisa con un simple mensaje
-                            y que convierten los pequeños momentos
-                            en recuerdos bonitos.
+                            Ojalá esta página te saque una sonrisa, mi niña bonita. Y si algún día se te olvida lo mucho
+                            que te quiero, vuelve por aquí y deja que tu pollito te lo recuerde. 🐥❤️
                         </p>
-
-                        <p>
-                            Y si hay algo que quiero que recuerdes al
-                            visitar este pequeño universo, es que no
-                            necesitas hacer nada extraordinario para
-                            ser especial. Tu forma de ser, tu sonrisa
-                            y esos pequeños detalles que te hacen ser
-                            tú tienen un valor enorme.
-                        </p>
-
-                        <p>
-                            No puedo prometerte que todos los días
-                            serán perfectos, pero sí quiero que nunca
-                            olvides lo mucho que puedes significar
-                            para alguien. Espero que esta pequeña
-                            sorpresa te regale una sonrisa y te haga
-                            sentir tan bonita como yo te veo.
-                        </p>
-
                     </div>
 
                     <div class="firma">
-                        Con muchísimo cariño...
-                        <span>PARA MI PERSONA ESPECIAL ♥</span>
+                        Con amorcito,
+                        <span>DE TU POLLITO 🐥♥</span>
                     </div>
-
                 </article>
-
             </div>
-
         </section>
 
-        <!-- CONTADOR DE NUESTRA RELACIÓN -->
+        <!-- CONTADOR -->
 
         <section class="seccion" id="nuestro-tiempo">
-
             <div class="contenedor">
 
                 <div class="encabezado-seccion">
-
-                    <span class="mini-titulo">
-                        Desde aquel día tan especial 💗
-                    </span>
-
-                    <h2 class="titulo-seccion">
-                        Nuestra historia de <span>amor</span>
-                    </h2>
-
-                    <p style="
-                        color: #c8bed8;
-                        margin-top: 18px;
-                        font-size: 14px;
-                    ">
-                        Desde el 26 de octubre de 2025,
-                        mi fecha favorita tiene una razón.
+                    <span class="mini-titulo">Desde aquel día tan especial 💗</span>
+                    <h2 class="titulo-seccion">Nuestra historia de <span>amor</span></h2>
+                    <p style="color:#c8bed8;margin-top:18px;font-size:14px;">
+                        Desde el 26 de septiembre de 2025, mi fecha favorita tiene una razón.
                     </p>
-
                 </div>
 
                 <div class="contador-amor">
-
                     <div class="contador-corazon">❤️</div>
+                    <p class="contador-etiqueta">TIEMPO JUNTAS</p>
 
-                    <p class="contador-etiqueta">
-                        TIEMPO JUNTAS
-                    </p>
-
-                    <div
-                        class="contador-cuadros"
-                        aria-label="Tiempo transcurrido desde el inicio de la relación"
-                        aria-live="off">
-
-                        <div class="contador-item">
-                            <span id="aniosAmor">0</span>
-                            <small>Años</small>
-                        </div>
-
-                        <div class="contador-item">
-                            <span id="mesesAmor">0</span>
-                            <small>Meses</small>
-                        </div>
-
-                        <div class="contador-item">
-                            <span id="diasAmor">0</span>
-                            <small>Días</small>
-                        </div>
-
-                        <div class="contador-item">
-                            <span id="horasAmor">0</span>
-                            <small>Horas</small>
-                        </div>
-
-                        <div class="contador-item">
-                            <span id="minutosAmor">0</span>
-                            <small>Minutos</small>
-                        </div>
-
-                        <div class="contador-item">
-                            <span id="segundosAmor">0</span>
-                            <small>Segundos</small>
-                        </div>
-
+                    <div class="contador-cuadros" aria-label="Tiempo desde el inicio de la relación">
+                        <div class="contador-item"><span id="aniosAmor">0</span><small>Años</small></div>
+                        <div class="contador-item"><span id="mesesAmor">0</span><small>Meses</small></div>
+                        <div class="contador-item"><span id="diasAmor">0</span><small>Días</small></div>
+                        <div class="contador-item"><span id="horasAmor">0</span><small>Horas</small></div>
+                        <div class="contador-item"><span id="minutosAmor">0</span><small>Minutos</small></div>
+                        <div class="contador-item"><span id="segundosAmor">0</span><small>Segundos</small></div>
                     </div>
 
                     <p class="contador-mensaje">
-                        Cada segundo a tu lado es un pequeño
-                        regalo que guarda mi corazón. 💞
+                        Cada segundo a tu lado es un pequeño regalo que guarda mi corazón. 💞
                     </p>
 
-                    <div class="contador-fecha">
-                        ✨ 26 · 10 · 2025 ✨
-                    </div>
+                    <div class="contador-fecha">✨ 26 · 09 · 2025 ✨</div>
 
                     <p class="contador-aniversario" id="mensajeAniversario">
-                        Nuestra historia sigue escribiendo
-                        momentos bonitos. ❤️
+                        Nuestra historia sigue escribiendo momentos bonitos. ❤️
                     </p>
-
                 </div>
-
             </div>
-
         </section>
 
-        <!-- PEQUEÑAS RAZONES -->
+        <!-- RAZONES -->
 
         <section class="seccion">
-
             <div class="contenedor">
 
                 <div class="encabezado-seccion">
-
-                    <span class="mini-titulo">
-                        Pequeñas cosas, grandes sentimientos
-                    </span>
-
-                    <h2 class="titulo-seccion">
-                        Lo bonito de <span>ti</span>
-                    </h2>
-
+                    <span class="mini-titulo">Pequeñas cosas, grandes sentimientos</span>
+                    <h2 class="titulo-seccion">Lo bonito de <span>ti</span></h2>
                 </div>
 
                 <div class="frases">
-
                     <article class="frase">
                         <span class="frase-icono">🌷</span>
-
                         <h3>Tu forma de ser</h3>
-
                         <p>
-                            Porque los pequeños detalles de tu
-                            personalidad pueden hacer especial
+                            Porque los pequeños detalles de tu personalidad pueden hacer especial
                             hasta el día más sencillo.
                         </p>
                     </article>
 
                     <article class="frase">
                         <span class="frase-icono">🌙</span>
-
                         <h3>Tu luz</h3>
-
                         <p>
-                            Porque incluso en los días grises,
-                            siempre existe una razón para volver
+                            Porque incluso en los días grises, siempre existe una razón para volver
                             a sonreír.
                         </p>
                     </article>
 
                     <article class="frase">
                         <span class="frase-icono">💗</span>
-
                         <h3>Lo que significas</h3>
-
                         <p>
-                            Porque hay personas que no necesitan
-                            ser perfectas para convertirse en
-                            alguien inolvidable.
+                            Porque hay personas que no necesitan ser perfectas para convertirse
+                            en alguien inolvidable.
                         </p>
                     </article>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- CARTA INTERACTIVA -->
 
-        <section class="seccion seccion-interactiva"
-                 id="carta-interactiva">
-
+        <section class="seccion seccion-interactiva" id="carta-interactiva">
             <div class="contenedor">
 
                 <div class="encabezado-seccion">
-
-                    <span class="mini-titulo">
-                        Tengo algo para ti 💌
-                    </span>
-
-                    <h2 class="titulo-seccion">
-                        Una carta desde <span>mi corazón</span>
-                    </h2>
-
-                    <p style="
-                        color: #c8bed8;
-                        margin-top: 15px;
-                        font-size: 14px;
-                    ">
+                    <span class="mini-titulo">Tengo algo para ti 💌</span>
+                    <h2 class="titulo-seccion">Una carta desde <span>mi corazón</span></h2>
+                    <p style="color:#c8bed8;margin-top:15px;font-size:14px;">
                         Hay palabras que merecen abrirse despacito...
                     </p>
-
                 </div>
 
                 <div class="zona-carta">
@@ -1651,176 +1200,91 @@
                         <span class="sobre-solapa"></span>
                         <span class="sobre-cuerpo"></span>
                         <span class="sobre-corazon">♥</span>
-
-                        <span class="sobre-texto">
-                            Para Deisy
-                        </span>
-
-                        <span class="sobre-instruccion">
-                            Toca aquí para abrir tu carta
-                        </span>
-
+                        <span class="sobre-texto">Para Deisy</span>
+                        <span class="sobre-instruccion">Toca aquí para abrir tu carta</span>
                     </button>
 
-                    <article
-                        class="carta-abierta"
-                        id="cartaAbierta"
-                        aria-hidden="true"
-                        inert>
+                    <article class="carta-abierta" id="cartaAbierta" aria-hidden="true" inert>
+                        <div class="carta-decoracion">✦ ♥ ✦</div>
 
-                        <div class="carta-decoracion">
-                            ✦ ♥ ✦
-                        </div>
-
-                        <p class="carta-destinataria">
-                            Para mi niña bonita,
-                        </p>
-
-                        <h3 class="carta-titulo">
-                            Mi querida Deisy
-                        </h3>
+                        <p class="carta-destinataria">Para mi niña bonita,</p>
+                        <h3 class="carta-titulo">Mi querida Deisy</h3>
 
                         <div class="carta-contenido">
-
                             <p>
-                                Si pudiera guardar todos los momentos
-                                bonitos que hemos vivido desde aquel
-                                26 de octubre de 2025, los guardaría
-                                en un lugar donde el tiempo nunca
-                                pudiera borrarlos.
+                                Amorcito, si pudiera guardar nuestros momentos bonitos en un frasquito, tendría que conseguir
+                                uno gigante. 🥹 Me gusta pensar en todo lo que hemos vivido y en las cositas que todavía nos
+                                faltan por hacer juntas.
                             </p>
 
                             <p>
-                                Desde que comenzamos esta historia,
-                                cada día se ha convertido en una nueva
-                                oportunidad para conocerte más,
-                                quererte más y descubrir todas esas
-                                pequeñas cosas que te hacen ser tú.
-                            </p>
-
-                            <p>
-                                Quería regalarte algo diferente,
-                                algo creado con mis propias manos
-                                y que llevara un poquito de lo que
-                                siento por ti.
-                            </p>
-
-                            <p>
-                                Quizás no existan palabras suficientes
-                                para explicar todo lo que puedes
-                                significar para mí, pero espero que
-                                cada detalle de esta carta te recuerde
-                                que eres alguien muy especial en mi vida.
-                            </p>
-
-                            <p>
-                                Quiero seguir sumando recuerdos contigo,
-                                compartir sonrisas, acompañarte en los
-                                días difíciles y celebrar contigo
-                                todas esas pequeñas cosas que hacen
-                                bonita nuestra historia.
+                                Te hice esta cartita porque quería darte algo que se sintiera nuestro. No soy perfecta y
+                                seguro a veces digo bobadas, pero lo que sí tengo clarito es que te quiero muchísimo y que
+                                me hace ilusión seguir sumando recuerdos contigo.
                             </p>
 
                             <p class="carta-promesa">
-                                Hoy, mañana y en cada nuevo capítulo
-                                que podamos escribir juntas,
-                                quiero seguir eligiéndote. ❤️
+                                Gracias por ser tú, Deisy. Ven acá a recibir un abrazo imaginario de tu pollito. Te quiero
+                                más de lo que cabe en esta página. ❤️🐥
                             </p>
-
                         </div>
 
-                        <div class="carta-firma">
-                            Con todo mi amor,
+                        <figure class="foto-nosotras">
+                            <img
+                                src="foto-nosotras.jpg"
+                                alt="Una foto bonita de nosotras juntas"
+                                onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
 
-                            <span>
-                                Tu novia ♥
-                            </span>
+                            <figcaption hidden>
+                                📸 Aquí va nuestra fotico. Guarda una imagen llamada
+                                <strong>foto-nosotras.jpg</strong> en la misma carpeta que este archivo HTML.
+                            </figcaption>
+
+                            <figcaption>Un recuerdito de nosotras 💗</figcaption>
+                        </figure>
+
+                        <div class="carta-firma">
+                            Te quiere mucho,
+                            <span>Tu pollito 🐥♥</span>
                         </div>
 
                         <div class="carta-final">
-                            26 · 10 · 2025
-
+                            26 · 09 · 2025
                             <br>
-
-                            <span>
-                                El comienzo de nuestra historia.
-                            </span>
+                            <span>Un día que siempre guardaré con cariño ❤️</span>
                         </div>
 
-                        <button
-                            type="button"
-                            class="boton boton-cerrar"
-                            id="cerrarCarta">
-
-                            Cerrar mi cartita 💗
-
+                        <button type="button" class="boton boton-cerrar" id="cerrarCarta">
+                            Cerrar la carta ♥
                         </button>
-
                     </article>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- MENSAJE SECRETO -->
 
         <section class="seccion seccion-secreta">
-
             <div class="contenedor">
-
-                <div class="sobre">
-
+                <div class="sobre-secreto">
                     <div class="sobre-icono">💌</div>
-
-                    <h2>Un último detallito para ti</h2>
-
+                    <h2>Un mensajito secreto</h2>
                     <p>
-                        Hay algo más que quiero decirte...
-                        pero tendrás que abrir tu pequeño regalo.
+                        Hay algo más que tu pollito quiere recordarte.
+                        ¿Quieres descubrirlo, amorcito?
                     </p>
 
-                    <button
-                        type="button"
-                        class="boton"
-                        id="botonSecreto">
-
-                        Abrir mi mensaje secreto 💖
-
+                    <button type="button" class="boton" id="botonSecreto">
+                        Abrir mi mensajito 💗
                     </button>
 
-                    <div id="mensajeSecreto" hidden>
-
-                        Deisy, si estás leyendo esto, quiero que
-                        sonrías un poquito. 😊
-
-                        <br><br>
-
-                        Recuerda que eres una persona única y que
-                        mereces momentos bonitos, cariño sincero
-                        y razones para ser feliz.
-
-                        <br><br>
-
-                        Gracias por ser tú. ❤️
-
-                        <br><br>
-
-                        <span style="
-                            font-family: 'Great Vibes', cursive;
-                            font-size: 35px;
-                            color: #ff9ec5;
-                        ">
-                            Eres mi estrella favorita ✨
-                        </span>
-
+                    <div id="mensajeSecreto" aria-live="polite">
+                        Amorcito, si llegaste hasta aquí, quiero que sepas que me hace muy feliz compartir
+                        esta historia contigo. Gracias por ser parte de mis días y por todos esos pequeños
+                        momentos que terminan significando tanto. Te mando un abrazo gigante. ❤️🐥
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
     </main>
@@ -1828,26 +1292,96 @@
     <!-- PIE DE PÁGINA -->
 
     <footer>
-
         <p>
-            HECHO CON <span class="footer-corazon">♥</span>
-            Y UN POQUITO DE MAGIA
+            Hecho con cariño para Deisy
+            <span class="footer-corazon">♥</span>
+            <br>
+            Con amor, tu pollito 🐥 · <span id="anio"></span>
         </p>
-
-        <p>
-            Este pequeño universo siempre tendrá tu nombre: Deisy.
-        </p>
-
-        <p style="margin-top: 12px;">
-            © <span id="anio"></span> · Un detalle especial para ti.
-        </p>
-
     </footer>
 
-    <!-- JAVASCRIPT -->
-
     <script>
-        "use strict";
+        // =====================================
+        // PANTALLA INICIAL: ¿ME AMAS?
+        // =====================================
+
+        const pantallaAmor = document.getElementById("pantallaAmor");
+        const botonSi = document.getElementById("botonSi");
+        const botonNo = document.getElementById("botonNo");
+        const mensajeEntrada = document.getElementById("mensajeEntrada");
+        const caritaEntrada = document.getElementById("caritaEntrada");
+
+        let vecesNo = 0;
+
+        const mensajesNo = [
+            "¿Cómo que no? 🥺 Mi corazoncito acaba de escuchar eso...",
+            "Amorcito, creo que ese botón está fallando. Intenta otra vez. 😭💗",
+            "¿Segura, Deisy? Mira que el Sí está poniéndose más bonito. 🐥",
+            "El botón de Sí te está llamando... no lo hagas esperar. 🥹💕",
+            "JAJAJA, el botón de Sí ya casi ocupa toda la pantalla. 😭❤️",
+            "Bueno, bueno... ¡ya no puedes escapar de tanto amor! 💖"
+        ];
+
+        const caritasNo = ["🥺💗", "😭💔", "🐥🥹", "😿💕", "🥹💖", "😍❤️"];
+
+        botonNo.addEventListener("click", function () {
+            vecesNo++;
+
+            const mensajeIndex = Math.min(vecesNo - 1, mensajesNo.length - 1);
+            mensajeEntrada.textContent = mensajesNo[mensajeIndex];
+            caritaEntrada.textContent = caritasNo[mensajeIndex];
+
+            const escala = Math.min(1 + vecesNo * 0.38, 3.5);
+            botonSi.style.transform = `scale(${escala})`;
+            botonSi.style.zIndex = "10";
+
+            botonNo.style.transform = `scale(${Math.max(1 - vecesNo * 0.12, 0.45)})`;
+
+            lanzarEmojisEntrada();
+
+            if (vecesNo >= 5) {
+                botonSi.textContent = "¡SÍ, TE AMO! ENTRAR 💗";
+                botonSi.style.position = "fixed";
+                botonSi.style.inset = "0";
+                botonSi.style.width = "100vw";
+                botonSi.style.height = "100vh";
+                botonSi.style.transform = "none";
+                botonSi.style.borderRadius = "0";
+                botonSi.style.fontSize = "clamp(25px, 6vw, 48px)";
+                botonSi.style.zIndex = "10001";
+                botonSi.style.boxShadow = "none";
+                botonSi.style.background = "linear-gradient(135deg, #ff6b9d, #bc78e8)";
+                botonNo.style.opacity = "0";
+                botonNo.style.pointerEvents = "none";
+                mensajeEntrada.textContent = "¡Sabía que sí, amorcito! Ahora entra a tu regalito. 🐥❤️";
+            }
+        });
+
+        botonSi.addEventListener("click", function () {
+            pantallaAmor.classList.add("aceptada");
+
+            setTimeout(function () {
+                pantallaAmor.style.display = "none";
+            }, 700);
+
+            lanzarCorazones(window.innerWidth / 2, window.innerHeight / 2);
+        });
+
+        function lanzarEmojisEntrada() {
+            const emojis = ["😭", "🥺", "💗", "💖", "🐥", "💕", "❤️"];
+
+            for (let i = 0; i < 7; i++) {
+                const emoji = document.createElement("span");
+                emoji.className = "emoji-reaccion";
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + "vw";
+                emoji.style.top = (50 + Math.random() * 40) + "vh";
+                emoji.style.fontSize = (20 + Math.random() * 25) + "px";
+                document.body.appendChild(emoji);
+
+                setTimeout(() => emoji.remove(), 1900);
+            }
+        }
 
         // =====================================
         // CREAR ESTRELLAS
@@ -1855,22 +1389,15 @@
 
         const universo = document.getElementById("universo");
 
-        for (let i = 0; i < 85; i++) {
+        for (let i = 0; i < 100; i++) {
             const estrella = document.createElement("div");
-
             estrella.className = "estrella";
-
             estrella.style.left = Math.random() * 100 + "%";
             estrella.style.top = Math.random() * 100 + "%";
-
-            estrella.style.animationDelay =
-                Math.random() * 4 + "s";
-
-            estrella.style.animationDuration =
-                (2 + Math.random() * 4) + "s";
+            estrella.style.animationDelay = Math.random() * 4 + "s";
+            estrella.style.animationDuration = (2 + Math.random() * 4) + "s";
 
             const tamano = 1 + Math.random() * 2;
-
             estrella.style.width = tamano + "px";
             estrella.style.height = tamano + "px";
 
@@ -1883,28 +1410,19 @@
 
         function crearCorazon() {
             const corazon = document.createElement("div");
-
             corazon.className = "corazon-flotante";
 
             const formas = ["♥", "♡", "❤", "💕", "✧"];
-
-            corazon.textContent =
-                formas[Math.floor(Math.random() * formas.length)];
-
+            corazon.textContent = formas[Math.floor(Math.random() * formas.length)];
             corazon.style.left = Math.random() * 100 + "%";
-
-            corazon.style.fontSize =
-                (12 + Math.random() * 24) + "px";
+            corazon.style.fontSize = (12 + Math.random() * 24) + "px";
 
             const duracion = 7 + Math.random() * 9;
-
             corazon.style.animationDuration = duracion + "s";
 
             universo.appendChild(corazon);
 
-            setTimeout(() => {
-                corazon.remove();
-            }, duracion * 1000);
+            setTimeout(() => corazon.remove(), duracion * 1000);
         }
 
         setInterval(crearCorazon, 650);
@@ -1918,32 +1436,16 @@
 
             for (let i = 0; i < 24; i++) {
                 const particula = document.createElement("div");
-
                 particula.className = "particula";
-
-                particula.textContent =
-                    simbolos[
-                        Math.floor(Math.random() * simbolos.length)
-                    ];
+                particula.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
 
                 particula.style.left = x + "px";
                 particula.style.top = y + "px";
-
-                particula.style.setProperty(
-                    "--x",
-                    (Math.random() - 0.5) * 350 + "px"
-                );
-
-                particula.style.setProperty(
-                    "--y",
-                    (Math.random() - 0.5) * 350 + "px"
-                );
+                particula.style.setProperty("--x", (Math.random() - 0.5) * 350 + "px");
+                particula.style.setProperty("--y", (Math.random() - 0.5) * 350 + "px");
 
                 document.body.appendChild(particula);
-
-                setTimeout(() => {
-                    particula.remove();
-                }, 1100);
+                setTimeout(() => particula.remove(), 1100);
             }
         }
 
@@ -1951,27 +1453,21 @@
         // BOTÓN DE LA PORTADA
         // =====================================
 
-        document
-            .getElementById("botonPortada")
-            .addEventListener("click", function () {
-
-                document.getElementById("carta").scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-                lanzarCorazones(
-                    window.innerWidth / 2,
-                    window.innerHeight / 2
-                );
+        document.getElementById("botonPortada").addEventListener("click", function () {
+            document.getElementById("carta").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
+
+            lanzarCorazones(window.innerWidth / 2, window.innerHeight / 2);
+        });
 
         // =====================================
         // CONTADOR DE NUESTRA RELACIÓN
-        // Fecha de inicio: 26 de octubre de 2025
+        // Fecha de inicio: 26 de septiembre de 2025
         // =====================================
 
-        const fechaInicioAmor = new Date(2025, 9, 26, 0, 0, 0);
+        const fechaInicioAmor = new Date(2025, 8, 26, 0, 0, 0);
 
         function actualizarContadorAmor() {
             const ahora = new Date();
@@ -1985,24 +1481,19 @@
                 "segundosAmor"
             ];
 
-            // Si la fecha de inicio aún no llega.
             if (ahora < fechaInicioAmor) {
                 ids.forEach(id => {
                     document.getElementById(id).textContent = "0";
                 });
 
                 document.getElementById("mensajeAniversario").textContent =
-                    "Nuestra historia comienza el 26 de octubre de 2025. ❤️";
+                    "Nuestra historia comienza el 26 de septiembre de 2025. ❤️";
 
                 return;
             }
 
-            // Años y meses completos de calendario.
-            let anios =
-                ahora.getFullYear() - fechaInicioAmor.getFullYear();
-
-            let meses =
-                ahora.getMonth() - fechaInicioAmor.getMonth();
+            let anios = ahora.getFullYear() - fechaInicioAmor.getFullYear();
+            let meses = ahora.getMonth() - fechaInicioAmor.getMonth();
 
             if (ahora.getDate() < fechaInicioAmor.getDate()) {
                 meses--;
@@ -2013,7 +1504,6 @@
                 meses += 12;
             }
 
-            // Fecha del último aniversario mensual.
             const fechaBase = new Date(
                 fechaInicioAmor.getFullYear() + anios,
                 fechaInicioAmor.getMonth() + meses,
@@ -2033,10 +1523,7 @@
             restante %= milisegundosHora;
 
             const minutos = Math.floor(restante / milisegundosMinuto);
-
-            const segundos = Math.floor(
-                (restante % milisegundosMinuto) / 1000
-            );
+            const segundos = Math.floor((restante % milisegundosMinuto) / 1000);
 
             document.getElementById("aniosAmor").textContent = anios;
             document.getElementById("mesesAmor").textContent = meses;
@@ -2045,9 +1532,7 @@
             document.getElementById("minutosAmor").textContent = minutos;
             document.getElementById("segundosAmor").textContent = segundos;
 
-            // Mensaje especial para el primer aniversario.
-            const mensajeAniversario =
-                document.getElementById("mensajeAniversario");
+            const mensajeAniversario = document.getElementById("mensajeAniversario");
 
             if (anios === 1 && meses === 0 && dias === 0) {
                 mensajeAniversario.textContent =
@@ -2062,7 +1547,6 @@
         }
 
         actualizarContadorAmor();
-
         setInterval(actualizarContadorAmor, 1000);
 
         // =====================================
@@ -2087,7 +1571,6 @@
                 botonCarta.hidden = true;
 
                 cartaAbierta.inert = false;
-
                 cartaAbierta.setAttribute("aria-hidden", "false");
                 cartaAbierta.classList.add("visible");
 
@@ -2096,11 +1579,7 @@
                     block: "center"
                 });
 
-                lanzarCorazones(
-                    window.innerWidth / 2,
-                    window.innerHeight / 2
-                );
-
+                lanzarCorazones(window.innerWidth / 2, window.innerHeight / 2);
                 temporizadorApertura = null;
             }, 550);
         });
@@ -2113,12 +1592,10 @@
 
             cartaAbierta.classList.remove("visible");
             cartaAbierta.inert = true;
-
             cartaAbierta.setAttribute("aria-hidden", "true");
 
             botonCarta.hidden = false;
             botonCarta.classList.remove("abriendo");
-
             botonCarta.setAttribute("aria-expanded", "false");
 
             botonCarta.scrollIntoView({
@@ -2135,17 +1612,12 @@
         const mensajeSecreto = document.getElementById("mensajeSecreto");
 
         botonSecreto.addEventListener("click", function () {
-            mensajeSecreto.hidden = false;
             mensajeSecreto.classList.add("visible");
-
             botonSecreto.textContent = "Un abrazo para ti ❤️";
             botonSecreto.disabled = true;
-            botonSecreto.style.opacity = "0.75";
+            botonSecreto.style.opacity = ".75";
 
-            lanzarCorazones(
-                window.innerWidth / 2,
-                window.innerHeight / 2
-            );
+            lanzarCorazones(window.innerWidth / 2, window.innerHeight / 2);
         });
 
         // =====================================
@@ -2157,11 +1629,8 @@
                 return;
             }
 
-            if (Math.random() > 0.55) {
-                lanzarCorazones(
-                    evento.clientX,
-                    evento.clientY
-                );
+            if (Math.random() > .55) {
+                lanzarCorazones(evento.clientX, evento.clientY);
             }
         });
 
@@ -2169,28 +1638,8 @@
         // AÑO AUTOMÁTICO
         // =====================================
 
-        document.getElementById("anio").textContent =
-            new Date().getFullYear();
-
+        document.getElementById("anio").textContent = new Date().getFullYear();
     </script>
 
 </body>
 </html>
-
-💗 ¿Qué tienes ahora?
-
-    Contador en tiempo real: años, meses, días, horas, minutos y segundos desde que comenzaron su relación.
-    Carta interactiva: Deisy pulsa el sobre, este desaparece con una animación y aparece una carta romántica.
-    Lluvia de corazones: al abrir la carta y revelar el mensaje secreto.
-    Mensaje secreto: otro detalle que ella puede descubrir pulsando un botón.
-    Diseño adaptable: funciona en celulares y computadores.
-    Fecha especial: el contador utiliza el 26 de octubre de 2025 como inicio de su historia.
-
-Un último consejo
-
-Cuando lo abras, comprueba que el contador avance cada segundo y que el sobre abra la carta correctamente.
-
-Para que Deisy pueda verla desde su propio celular, tendrás que publicar la página en un servicio de alojamiento web. Abrir index.html en tu computador solo la hace visible localmente.
-
-Y recuerda: el 26 de octubre de 2026 cumplirán un año juntas. ❤️ Espero que esta página se convierta en un recuerdo muy bonito para las dos.
-
