@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Deisy ❤️</title>
+
+    <meta name="description"
+          content="Una pequeña parte de mi corazón, hecha especialmente para Deisy.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* =====================================
+           CONFIGURACIÓN GENERAL
+        ===================================== */
+
+        :root {
+            --rosa: #ff6b9d;
+            --rosa-claro: #ffb6d0;
+            --morado: #a18aff;
+            --dorado: #ffd98e;
+            --blanco: #fff8fc;
+            --fondo: #100c20;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--blanco);
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(161, 138, 255, 0.15),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 60%,
+                    rgba(255, 107, 157, 0.13),
+                    transparent 35%
+                ),
+                var(--fondo);
+
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: var(--rosa);
+            color: white;
+        }
+
+        /* =====================================
+           FONDO ANIMADO
+        ===================================== */
+
+        #universo {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .estrella {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+
+            animation: parpadear 3s infinite ease-in-out;
+        }
+
+        @keyframes parpadear {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(0.7);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        .corazon-flotante {
+            position: absolute;
+            bottom: -60px;
+
+            color: var(--rosa);
+            opacity: 0;
+
+            animation: subir linear forwards;
+
+            filter: drop-shadow(
+                0 0 10px rgba(255, 107, 157, 0.5)
+            );
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.7);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.8;
+            }
+
+            85% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform:
+                    translateY(-115vh)
+                    rotate(35deg)
+                    scale(1.3);
+
+                opacity: 0;
+            }
+        }
+
+        /* =====================================
+           NAVEGACIÓN
+        ===================================== */
+
+        header {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            padding: 25px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--rosa);
+        }
+
+        .navegacion {
+            color: #d8cde9;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* =====================================
+           PORTADA
+        ===================================== */
+
+        .portada {
+            position: relative;
+            z-index: 1;
+
+            min-height: 88vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 70px 20px 100px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+
+            padding: 9px 20px;
+            margin-bottom: 30px;
+
+            border: 1px solid rgba(255, 182, 208, 0.35);
+            border-radius: 50px;
+
+            background: rgba(255,255,255,0.04);
+
+            color: var(--rosa-claro);
+
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            animation: aparecer 1.2s ease both;
+        }
+
+        .corazon-central {
+            position: relative;
+
+            width: 115px;
+            height: 115px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 35px;
+
+            border: 1px solid rgba(255, 182, 208, 0.3);
+            border-radius: 50%;
+
+            background: rgba(255, 107, 157, 0.08);
+
+            box-shadow:
+                0 0 35px rgba(255, 107, 157, 0.12),
+                inset 0 0 30px rgba(255, 107, 157, 0.08);
+
+            animation: flotar 4s ease-in-out infinite;
+        }
+
+        .corazon-central::before {
+            content: "";
+
+            position: absolute;
+            inset: -12px;
+
+            border: 1px solid rgba(255, 217, 142, 0.3);
+            border-radius: 50%;
+
+            animation: girar 12s linear infinite;
+        }
+
+        .corazon-central::after {
+            content: "✦";
+
+            position: absolute;
+            right: -12px;
+            top: 10px;
+
+            color: var(--dorado);
+            font-size: 25px;
+
+            animation: brillar 2s infinite;
+        }
+
+        .corazon-icono {
+            font-size: 55px;
+
+            filter: drop-shadow(
+                0 0 20px rgba(255, 107, 157, 0.65)
+            );
+
+            animation: latir 1.5s infinite;
+        }
+
+        @keyframes latir {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.16);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.12);
+            }
+        }
+
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes girar {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes brillar {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+
+        h1 {
+            font-size: clamp(48px, 9vw, 100px);
+            font-weight: 400;
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+
+            animation: aparecer 1.4s ease both;
+        }
+
+        h1 .nombre {
+            display: block;
+
+            font-family: 'Great Vibes', cursive;
+
+            font-size: clamp(80px, 15vw, 145px);
+
+            background: linear-gradient(
+                120deg,
+                #fff1f7,
+                #ff8eb6,
+                #ffd98e,
+                #d2baff
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            filter: drop-shadow(
+                0 0 25px rgba(255, 107, 157, 0.15)
+            );
+        }
+
+        .subtitulo {
+            max-width: 580px;
+
+            margin: 15px auto 35px;
+
+            color: #c8bed8;
+
+            font-size: clamp(14px, 2vw, 17px);
+            font-weight: 300;
+            line-height: 2;
+
+            animation: aparecer 1.8s ease both;
+        }
+
+        .boton {
+            display: inline-block;
+
+            padding: 15px 28px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+
+            background: linear-gradient(
+                120deg,
+                #ff6b9d,
+                #bc78e8
+            );
+
+            color: white;
+
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 35px rgba(255, 107, 157, 0.2);
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+        }
+
+        .boton:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =====================================
+           SEPARADOR DECORATIVO
+        ===================================== */
+
+        .separador {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 20px;
+
+            margin: 0 auto 70px;
+
+            color: var(--rosa-claro);
+        }
+
+        .separador span {
+            width: 70px;
+            height: 1px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--rosa)
+            );
+        }
+
+        .separador span:last-child {
+            transform: rotate(180deg);
+        }
+
+        /* =====================================
+           CARTA DE AMOR
+        ===================================== */
+
+        .seccion {
+            position: relative;
+            z-index: 1;
+
+            padding: 35px 20px 100px;
+        }
+
+        .contenedor {
+            width: min(800px, 100%);
+            margin: 0 auto;
+        }
+
+        .encabezado-seccion {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .mini-titulo {
+            display: block;
+
+            margin-bottom: 15px;
+
+            color: var(--rosa);
+
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .titulo-seccion {
+            font-size: clamp(30px, 5vw, 45px);
+            font-weight: 400;
+        }
+
+        .titulo-seccion span {
+            color: var(--rosa-claro);
+        }
+
+        .carta {
+            position: relative;
+
+            padding: clamp(28px, 6vw, 60px);
+
+            border: 1px solid rgba(255,255,255,0.11);
+            border-radius: 25px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.065),
+                rgba(255,255,255,0.02)
+            );
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .carta::before {
+            content: "“";
+
+            position: absolute;
+
+            top: -15px;
+            left: 20px;
+
+            font-family: Georgia, serif;
+            font-size: 100px;
+
+            color: rgba(255,107,157,0.2);
+        }
+
+        .saludo {
+            margin-bottom: 25px;
+
+            font-family: 'Great Vibes', cursive;
+            font-size: 45px;
+
+            color: var(--rosa-claro);
+        }
+
+        .texto-carta {
+            color: #d8d0e4;
+
+            font-size: 15px;
+            font-weight: 300;
+
+            line-height: 2.2;
+        }
+
+        .texto-carta p {
+            margin-bottom: 20px;
+        }
+
+        .firma {
+            margin-top: 35px;
+
+            font-family: 'Great Vibes', cursive;
+            font-size: 35px;
+
+            text-align: right;
+
+            color: var(--rosa-claro);
+        }
+
+        .firma span {
+            display: block;
+
+            margin-top: 5px;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+
+            color: #b8a9cd;
+        }
+
+        /* =====================================
+           CONSTELACIÓN DE FRASES
+        ===================================== */
+
+        .frases {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 35px;
+        }
+
+        .frase {
+            padding: 28px 18px;
+
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.025);
+
+            text-align: center;
+
+            transition:
+                transform 0.3s,
+                background 0.3s,
+                border-color 0.3s;
+        }
+
+        .frase:hover {
+            transform: translateY(-8px);
+
+            background: rgba(255,107,157,0.07);
+
+            border-color: rgba(255,107,157,0.3);
+        }
+
+        .frase-icono {
+            display: block;
+
+            margin-bottom: 15px;
+
+            font-size: 30px;
+        }
+
+        .frase h3 {
+            margin-bottom: 10px;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            color: #ffe2ee;
+        }
+
+        .frase p {
+            color: #bdb2ce;
+
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        /* =====================================
+           MENSAJE SECRETO
+        ===================================== */
+
+        .seccion-secreta {
+            padding-top: 0;
+            text-align: center;
+        }
+
+        .sobre {
+            position: relative;
+
+            width: 100%;
+            max-width: 650px;
+
+            margin: 0 auto;
+
+            padding: 45px 25px;
+
+            border: 1px solid rgba(255,217,142,0.2);
+            border-radius: 25px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(255,217,142,0.08),
+                    transparent 70%
+                ),
+                rgba(255,255,255,0.025);
+        }
+
+        .sobre-icono {
+            margin-bottom: 20px;
+            font-size: 45px;
+
+            animation: flotar 3s infinite ease-in-out;
+        }
+
+        .sobre h2 {
+            margin-bottom: 12px;
+
+            font-size: 27px;
+            font-weight: 400;
+        }
+
+        .sobre > p {
+            margin-bottom: 25px;
+
+            color: #bdb2ce;
+
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        #mensajeSecreto {
+            display: none;
+
+            margin-top: 30px;
+            padding: 25px;
+
+            border-radius: 15px;
+
+            background: rgba(255,107,157,0.07);
+
+            color: #ffe0ed;
+
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        #mensajeSecreto.visible {
+            display: block;
+            animation: aparecer 0.8s ease both;
+        }
+
+        /* =====================================
+           PIE DE PÁGINA
+        ===================================== */
+
+        footer {
+            position: relative;
+            z-index: 1;
+
+            padding: 35px 20px;
+
+            border-top: 1px solid rgba(255,255,255,0.07);
+
+            text-align: center;
+        }
+
+        footer p {
+            color: #9e91b5;
+
+            font-size: 11px;
+            line-height: 2;
+            letter-spacing: 1px;
+        }
+
+        .footer-corazon {
+            display: inline-block;
+
+            color: var(--rosa);
+
+            animation: latir 1.5s infinite;
+        }
+
+        /* =====================================
+           EFECTO AL HACER CLIC
+        ===================================== */
+
+        .particula {
+            position: fixed;
+
+            z-index: 10;
+            pointer-events: none;
+
+            font-size: 20px;
+
+            animation: explosion 1s ease-out forwards;
+        }
+
+        @keyframes explosion {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(0.5);
+            }
+
+            100% {
+                opacity: 0;
+                transform:
+                    translate(var(--x), var(--y))
+                    rotate(180deg)
+                    scale(1.5);
+            }
+        }
+
+        /* =====================================
+           DISEÑO PARA CELULARES
+        ===================================== */
+
+        @media (max-width: 650px) {
+            header {
+                padding: 20px;
+            }
+
+            .navegacion {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+
+            .portada {
+                min-height: 85vh;
+                padding: 60px 20px 80px;
+            }
+
+            .corazon-central {
+                width: 95px;
+                height: 95px;
+            }
+
+            .corazon-icono {
+                font-size: 45px;
+            }
+
+            .frases {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .frase {
+                padding: 25px;
+            }
+
+            .carta {
+                padding: 35px 25px;
+            }
+
+            .texto-carta {
+                font-size: 13px;
+            }
+
+            .saludo {
+                font-size: 38px;
+            }
+        }
+
+        /* Respeta la preferencia de movimiento reducido */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FONDO CON ESTRELLAS Y CORAZONES -->
+
+    <div id="universo" aria-hidden="true"></div>
+
+    <!-- NAVEGACIÓN -->
+
+    <header>
+        <div class="logo">
+            Para <span>Deisy</span> ♥
+        </div>
+
+        <div class="navegacion">
+            Un pequeño universo para ti
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PORTADA PRINCIPAL -->
+
+        <section class="portada">
+
+            <div class="etiqueta">
+                ✨ Hecho con amor, solo para ti ✨
+            </div>
+
+            <div class="corazon-central">
+                <div class="corazon-icono">❤️</div>
+            </div>
+
+            <h1>
+                Para alguien
+                <span class="nombre">muy especial</span>
+            </h1>
+
+            <p class="subtitulo">
+                En un mundo lleno de personas, hay alguien que hace
+                que todo tenga un poquito más de luz.
+                Esa persona eres tú, Deisy. 💗
+            </p>
+
+            <button class="boton" onclick="irALaCarta()">
+                Descubre tu pequeño universo ♥
+            </button>
+
+        </section>
+
+        <!-- SEPARADOR -->
+
+        <div class="separador" aria-hidden="true">
+            <span></span>
+            ✧
+            <span></span>
+        </div>
+
+        <!-- CARTA -->
+
+        <section class="seccion" id="carta">
+
+            <div class="contenedor">
+
+                <div class="encabezado-seccion">
+                    <span class="mini-titulo">
+                        Unas palabras desde el corazón
+                    </span>
+
+                    <h2 class="titulo-seccion">
+                        Mi querida <span>Deisy</span>
+                    </h2>
+                </div>
+
+                <article class="carta">
+
+                    <div class="saludo">
+                        Hola, mi niña bonita...
+                    </div>
+
+                    <div class="texto-carta">
+
+                        <p>
+                            Tal vez esta página no sea el regalo más
+                            grande del mundo, pero tiene algo que para
+                            mí vale muchísimo: un pedacito de mi tiempo,
+                            de mi imaginación y de todo el cariño que
+                            quiero dedicarte.
+                        </p>
+
+                        <p>
+                            Quería crear algo diferente, algo que
+                            pudieras abrir y que te recordara lo
+                            especial que eres para mí. Por eso cada
+                            pequeño corazón, cada luz y cada detalle
+                            de esta página están aquí para ti.
+                        </p>
+
+                        <p>
+                            Deisy, hay personas que llegan a nuestras
+                            vidas y hacen que los días normales tengan
+                            algo extraordinario. Personas que pueden
+                            sacarnos una sonrisa con un simple mensaje
+                            y que convierten los pequeños momentos
+                            en recuerdos bonitos.
+                        </p>
+
+                        <p>
+                            Y si hay algo que quiero que recuerdes al
+                            visitar este pequeño universo, es que no
+                            necesitas hacer nada extraordinario para
+                            ser especial. Tu forma de ser, tu sonrisa
+                            y esos pequeños detalles que te hacen ser
+                            tú tienen un valor enorme.
+                        </p>
+
+                        <p>
+                            No puedo prometerte que todos los días
+                            serán perfectos, pero sí quiero que nunca
+                            olvides lo mucho que puedes significar
+                            para alguien. Espero que esta pequeña
+                            sorpresa te regale una sonrisa y te haga
+                            sentir tan bonita como yo te veo.
+                        </p>
+
+                    </div>
+
+                    <div class="firma">
+                        Con muchísimo cariño...
+                        <span>PARA MI PERSONA ESPECIAL ♥</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- PEQUEÑAS RAZONES -->
+
+        <section class="seccion">
+
+            <div class="contenedor">
+
+                <div class="encabezado-seccion">
+                    <span class="mini-titulo">
+                        Pequeñas cosas, grandes sentimientos
+                    </span>
+
+                    <h2 class="titulo-seccion">
+                        Lo bonito de <span>ti</span>
+                    </h2>
+                </div>
+
+                <div class="frases">
+
+                    <article class="frase">
+                        <span class="frase-icono">🌷</span>
+
+                        <h3>Tu forma de ser</h3>
+
+                        <p>
+                            Porque los pequeños detalles de tu
+                            personalidad pueden hacer especial
+                            hasta el día más sencillo.
+                        </p>
+                    </article>
+
+                    <article class="frase">
+                        <span class="frase-icono">🌙</span>
+
+                        <h3>Tu luz</h3>
+
+                        <p>
+                            Porque incluso en los días grises,
+                            siempre existe una razón para volver
+                            a sonreír.
+                        </p>
+                    </article>
+
+                    <article class="frase">
+                        <span class="frase-icono">💗</span>
+
+                        <h3>Lo que significas</h3>
+
+                        <p>
+                            Porque hay personas que no necesitan
+                            ser perfectas para convertirse en
+                            alguien inolvidable.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- MENSAJE SECRETO -->
+
+        <section class="seccion seccion-secreta">
+
+            <div class="contenedor">
+
+                <div class="sobre">
+
+                    <div class="sobre-icono">💌</div>
+
+                    <h2>Un último detallito para ti</h2>
+
+                    <p>
+                        Hay algo más que quiero decirte...
+                        pero tendrás que abrir tu pequeño regalo.
+                    </p>
+
+                    <button
+                        class="boton"
+                        id="botonSecreto"
+                        onclick="revelarMensaje()">
+
+                        Abrir mi mensaje secreto 💖
+
+                    </button>
+
+                    <div id="mensajeSecreto">
+
+                        Deisy, si estás leyendo esto, quiero que
+                        sonrías un poquito. 😊
+
+                        <br><br>
+
+                        Recuerda que eres una persona única y que
+                        mereces momentos bonitos, cariño sincero
+                        y razones para ser feliz.
+
+                        <br><br>
+
+                        Gracias por ser tú. ❤️
+
+                        <br><br>
+
+                        <span style="
+                            font-family: 'Great Vibes', cursive;
+                            font-size: 35px;
+                            color: #ff9ec5;
+                        ">
+                            Eres mi estrella favorita ✨
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+        <p>
+            HECHO CON <span class="footer-corazon">♥</span>
+            Y UN POQUITO DE MAGIA
+        </p>
+
+        <p>
+            Este pequeño universo siempre tendrá tu nombre: Deisy.
+        </p>
+
+        <p style="margin-top: 12px;">
+            © <span id="anio"></span> · Un detalle especial para ti.
+        </p>
+    </footer>
+
+    <!-- JAVASCRIPT: ANIMACIONES E INTERACCIONES -->
+
+    <script>
+
+        // =====================================
+        // CREAR ESTRELLAS EN EL FONDO
+        // =====================================
+
+        const universo = document.getElementById("universo");
+
+        for (let i = 0; i < 85; i++) {
+
+            const estrella = document.createElement("div");
+
+            estrella.className = "estrella";
+
+            estrella.style.left = Math.random() * 100 + "%";
+            estrella.style.top = Math.random() * 100 + "%";
+
+            estrella.style.animationDelay =
+                Math.random() * 4 + "s";
+
+            estrella.style.animationDuration =
+                (2 + Math.random() * 4) + "s";
+
+            const tamano = 1 + Math.random() * 2;
+
+            estrella.style.width = tamano + "px";
+            estrella.style.height = tamano + "px";
+
+            universo.appendChild(estrella);
+        }
+
+
+        // =====================================
+        // CORAZONES FLOTANTES
+        // =====================================
+
+        function crearCorazon() {
+
+            const corazon = document.createElement("div");
+
+            corazon.className = "corazon-flotante";
+
+            const formas = ["♥", "♡", "❤", "💕", "✧"];
+
+            corazon.textContent =
+                formas[Math.floor(Math.random() * formas.length)];
+
+            corazon.style.left = Math.random() * 100 + "%";
+
+            corazon.style.fontSize =
+                (12 + Math.random() * 24) + "px";
+
+            const duracion = 7 + Math.random() * 9;
+
+            corazon.style.animationDuration = duracion + "s";
+
+            universo.appendChild(corazon);
+
+            setTimeout(() => {
+                corazon.remove();
+            }, duracion * 1000);
+        }
+
+        // Crear un corazón cada cierto tiempo.
+
+        setInterval(crearCorazon, 650);
+
+
+        // =====================================
+        // BOTÓN PARA IR A LA CARTA
+        // =====================================
+
+        function irALaCarta() {
+
+            document.getElementById("carta").scrollIntoView({
+                behavior: "smooth"
+            });
+
+            lanzarCorazones(
+                window.innerWidth / 2,
+                window.innerHeight / 2
+            );
+        }
+
+
+        // =====================================
+        // REVELAR MENSAJE SECRETO
+        // =====================================
+
+        function revelarMensaje() {
+
+            const mensaje =
+                document.getElementById("mensajeSecreto");
+
+            const boton =
+                document.getElementById("botonSecreto");
+
+            mensaje.classList.add("visible");
+
+            boton.textContent = "Un abrazo para ti ❤️";
+
+            boton.disabled = true;
+
+            boton.style.opacity = "0.75";
+
+            lanzarCorazones(
+                window.innerWidth / 2,
+                window.innerHeight / 2
+            );
+        }
+
+
+        // =====================================
+        // EXPLOSIÓN DE CORAZONES
+        // =====================================
+
+        function lanzarCorazones(x, y) {
+
+            const simbolos = ["❤️", "💗", "💕", "💖", "✨", "♥"];
+
+            for (let i = 0; i < 24; i++) {
+
+                const particula = document.createElement("div");
+
+                particula.className = "particula";
+
+                particula.textContent =
+                    simbolos[
+                        Math.floor(Math.random() * simbolos.length)
+                    ];
+
+                particula.style.left = x + "px";
+                particula.style.top = y + "px";
+
+                particula.style.setProperty(
+                    "--x",
+                    (Math.random() - 0.5) * 350 + "px"
+                );
+
+                particula.style.setProperty(
+                    "--y",
+                    (Math.random() - 0.5) * 350 + "px"
+                );
+
+                document.body.appendChild(particula);
+
+                setTimeout(() => {
+                    particula.remove();
+                }, 1100);
+            }
+        }
+
+
+        // =====================================
+        // CORAZONES AL TOCAR O HACER CLIC
+        // =====================================
+
+        document.addEventListener("click", function(evento) {
+
+            // Evita interferir con los botones principales.
+
+            if (evento.target.closest("button")) {
+                return;
+            }
+
+            if (Math.random() > 0.55) {
+                lanzarCorazones(
+                    evento.clientX,
+                    evento.clientY
+                );
+            }
+        });
+
+
+        // =====================================
+        // AÑO AUTOMÁTICO
+        // =====================================
+
+        document.getElementById("anio").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
