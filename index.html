@@ -7,7 +7,7 @@
     <title>Para Deisy ❤️</title>
 
     <meta name="description"
-          content="Una pequeña parte de mi corazón, hecha especialmente para Deisy.">
+          content="Un pequeño universo creado con amor para Deisy.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +42,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--blanco);
+
             background:
                 radial-gradient(
                     circle at 20% 20%,
@@ -61,6 +62,11 @@
 
         button {
             font-family: inherit;
+        }
+
+        button:focus-visible {
+            outline: 2px solid var(--dorado);
+            outline-offset: 5px;
         }
 
         ::selection {
@@ -84,6 +90,7 @@
             position: absolute;
             width: 3px;
             height: 3px;
+
             background: white;
             border-radius: 50%;
 
@@ -131,11 +138,7 @@
             }
 
             100% {
-                transform:
-                    translateY(-115vh)
-                    rotate(35deg)
-                    scale(1.3);
-
+                transform: translateY(-115vh) rotate(35deg) scale(1.3);
                 opacity: 0;
             }
         }
@@ -154,6 +157,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
 
             border-bottom: 1px solid rgba(255,255,255,0.07);
         }
@@ -173,6 +177,7 @@
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
+            text-align: right;
         }
 
         /* =====================================
@@ -320,7 +325,7 @@
         }
 
         h1 {
-            font-size: clamp(48px, 9vw, 100px);
+            font-size: clamp(42px, 9vw, 100px);
             font-weight: 400;
             line-height: 1.2;
 
@@ -333,8 +338,7 @@
             display: block;
 
             font-family: 'Great Vibes', cursive;
-
-            font-size: clamp(80px, 15vw, 145px);
+            font-size: clamp(75px, 15vw, 145px);
 
             background: linear-gradient(
                 120deg,
@@ -417,7 +421,7 @@
         }
 
         /* =====================================
-           SEPARADOR DECORATIVO
+           SEPARADOR
         ===================================== */
 
         .separador {
@@ -448,7 +452,7 @@
         }
 
         /* =====================================
-           CARTA DE AMOR
+           SECCIONES GENERALES
         ===================================== */
 
         .seccion {
@@ -489,6 +493,10 @@
             color: var(--rosa-claro);
         }
 
+        /* =====================================
+           CARTA TRADICIONAL
+        ===================================== */
+
         .carta {
             position: relative;
 
@@ -514,7 +522,6 @@
             content: "“";
 
             position: absolute;
-
             top: -15px;
             left: 20px;
 
@@ -570,14 +577,123 @@
         }
 
         /* =====================================
-           CONSTELACIÓN DE FRASES
+           CONTADOR DE NUESTRA RELACIÓN
+        ===================================== */
+
+        .contador-amor {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px 25px;
+
+            text-align: center;
+
+            border: 1px solid rgba(255, 182, 208, 0.22);
+            border-radius: 28px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(255, 107, 157, 0.12),
+                    transparent 65%
+                ),
+                rgba(255, 255, 255, 0.025);
+
+            box-shadow:
+                0 20px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .contador-corazon {
+            font-size: 42px;
+            margin-bottom: 15px;
+
+            animation: latir 1.5s infinite;
+        }
+
+        .contador-etiqueta {
+            color: #ffb6d0;
+            font-size: 11px;
+            letter-spacing: 4px;
+
+            margin-bottom: 30px;
+        }
+
+        .contador-cuadros {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .contador-item {
+            padding: 22px 8px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .contador-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 107, 157, 0.4);
+        }
+
+        .contador-item span {
+            display: block;
+
+            font-size: clamp(25px, 5vw, 38px);
+            font-weight: 600;
+
+            color: #ffe1ed;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .contador-item small {
+            display: block;
+
+            margin-top: 8px;
+
+            color: #bdb2ce;
+
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .contador-mensaje {
+            margin-top: 30px;
+
+            color: #d8cde9;
+
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .contador-fecha {
+            margin-top: 20px;
+
+            color: #ffd98e;
+
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .contador-aniversario {
+            margin: 20px auto 0;
+            max-width: 480px;
+
+            color: #ffb6d0;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* =====================================
+           PEQUEÑAS RAZONES
         ===================================== */
 
         .frases {
             display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
 
             margin-top: 35px;
@@ -603,15 +719,12 @@
             transform: translateY(-8px);
 
             background: rgba(255,107,157,0.07);
-
             border-color: rgba(255,107,157,0.3);
         }
 
         .frase-icono {
             display: block;
-
             margin-bottom: 15px;
-
             font-size: 30px;
         }
 
@@ -633,6 +746,330 @@
         }
 
         /* =====================================
+           CARTA INTERACTIVA Y SOBRE
+        ===================================== */
+
+        .seccion-interactiva {
+            padding-top: 0;
+        }
+
+        .zona-carta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+
+            width: 100%;
+        }
+
+        .sobre-animado {
+            position: relative;
+
+            width: min(340px, 100%);
+            height: 220px;
+
+            padding: 0;
+
+            border: 1px solid rgba(255, 182, 208, 0.4);
+            border-radius: 12px;
+
+            background: #3a1938;
+            color: white;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 35px rgba(255, 107, 157, 0.1);
+
+            transition: transform 0.35s, box-shadow 0.35s;
+
+            isolation: isolate;
+        }
+
+        .sobre-animado:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 25px 65px rgba(0, 0, 0, 0.35),
+                0 0 40px rgba(255, 107, 157, 0.2);
+        }
+
+        .sobre-cuerpo {
+            position: absolute;
+            inset: 0;
+
+            overflow: hidden;
+            border-radius: 11px;
+
+            background: linear-gradient(
+                145deg,
+                #7d315f,
+                #451c45
+            );
+
+            z-index: 1;
+        }
+
+        .sobre-cuerpo::before,
+        .sobre-cuerpo::after {
+            content: "";
+
+            position: absolute;
+            bottom: 0;
+
+            width: 0;
+            height: 0;
+
+            border-style: solid;
+        }
+
+        .sobre-cuerpo::before {
+            left: 0;
+
+            border-width: 110px 0 0 170px;
+            border-color: transparent transparent transparent #a44c79;
+        }
+
+        .sobre-cuerpo::after {
+            right: 0;
+
+            border-width: 0 0 110px 170px;
+            border-color: transparent transparent #6d2858 transparent;
+        }
+
+        .sobre-solapa {
+            position: absolute;
+            inset: 0 0 auto;
+
+            height: 120px;
+
+            background: linear-gradient(
+                145deg,
+                #d66a9d,
+                #8b3a75
+            );
+
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top center;
+
+            transition: transform 0.65s ease;
+
+            z-index: 3;
+        }
+
+        .sobre-corazon {
+            position: absolute;
+
+            left: 50%;
+            top: 43%;
+
+            transform: translate(-50%, -50%);
+
+            color: #ffe3ed;
+            font-size: 43px;
+
+            text-shadow:
+                0 0 20px rgba(255, 182, 208, 0.65);
+
+            animation: latir 1.5s infinite;
+
+            z-index: 4;
+        }
+
+        .sobre-texto {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 37px;
+
+            font-family: 'Great Vibes', cursive;
+            font-size: 32px;
+
+            color: #fff0f6;
+
+            z-index: 4;
+        }
+
+        .sobre-instruccion {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: -35px;
+
+            color: #c8bed8;
+            font-size: 11px;
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+
+            z-index: 5;
+        }
+
+        .sobre-animado.abriendo {
+            animation: desaparecerSobre 0.6s ease forwards;
+        }
+
+        .sobre-animado.abriendo .sobre-solapa {
+            transform: rotateX(180deg);
+        }
+
+        @keyframes desaparecerSobre {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-25px) scale(0.9);
+                opacity: 0;
+            }
+        }
+
+        /* =====================================
+           PAPEL DE LA CARTA ABIERTA
+        ===================================== */
+
+        .carta-abierta {
+            display: none;
+
+            width: min(650px, 100%);
+
+            padding: clamp(25px, 6vw, 55px);
+
+            border: 1px solid rgba(255, 217, 142, 0.35);
+            border-radius: 8px;
+
+            color: #573b50;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0,
+                    rgba(255, 215, 225, 0.7),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    145deg,
+                    #fff9f0,
+                    #ffedf4
+                );
+
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.3);
+
+            position: relative;
+        }
+
+        .carta-abierta.visible {
+            display: block;
+            animation: aparecerCarta 0.9s ease both;
+        }
+
+        @keyframes aparecerCarta {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .carta-decoracion {
+            margin-bottom: 28px;
+
+            text-align: center;
+
+            color: #c65c87;
+            letter-spacing: 9px;
+            font-size: 20px;
+        }
+
+        .carta-destinataria {
+            font-family: 'Great Vibes', cursive;
+            font-size: 35px;
+            color: #a64c77;
+        }
+
+        .carta-titulo {
+            margin: 8px 0 25px;
+
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(42px, 8vw, 60px);
+            font-weight: 400;
+
+            color: #a64c77;
+        }
+
+        .carta-contenido {
+            font-size: 14px;
+            line-height: 2.1;
+            font-weight: 300;
+        }
+
+        .carta-contenido p {
+            margin-bottom: 20px;
+        }
+
+        .carta-promesa {
+            color: #a33d70;
+            font-weight: 500;
+        }
+
+        .carta-firma {
+            margin-top: 35px;
+
+            font-family: 'Great Vibes', cursive;
+            font-size: 34px;
+
+            color: #a64c77;
+        }
+
+        .carta-firma span {
+            display: block;
+
+            margin-top: 8px;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .carta-final {
+            margin-top: 35px;
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(166, 76, 119, 0.2);
+
+            text-align: center;
+
+            color: #a64c77;
+
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .carta-final span {
+            display: inline-block;
+
+            margin-top: 8px;
+
+            font-size: 11px;
+            letter-spacing: 0;
+        }
+
+        .boton-cerrar {
+            display: block;
+            margin: 30px auto 0;
+
+            border: none;
+        }
+
+        /* =====================================
            MENSAJE SECRETO
         ===================================== */
 
@@ -648,7 +1085,6 @@
             max-width: 650px;
 
             margin: 0 auto;
-
             padding: 45px 25px;
 
             border: 1px solid rgba(255,217,142,0.2);
@@ -693,7 +1129,6 @@
             padding: 25px;
 
             border-radius: 15px;
-
             background: rgba(255,107,157,0.07);
 
             color: #ffe0ed;
@@ -739,7 +1174,7 @@
         }
 
         /* =====================================
-           EFECTO AL HACER CLIC
+           EXPLOSIÓN DE CORAZONES
         ===================================== */
 
         .particula {
@@ -769,12 +1204,16 @@
         }
 
         /* =====================================
-           DISEÑO PARA CELULARES
+           DISEÑO RESPONSIVE
         ===================================== */
 
         @media (max-width: 650px) {
             header {
                 padding: 20px;
+            }
+
+            .logo {
+                font-size: 17px;
             }
 
             .navegacion {
@@ -816,9 +1255,55 @@
             .saludo {
                 font-size: 38px;
             }
+
+            .contador-cuadros {
+                gap: 8px;
+            }
+
+            .contador-item {
+                padding: 18px 4px;
+            }
+
+            .contador-item small {
+                font-size: 10px;
+                letter-spacing: 0;
+            }
         }
 
-        /* Respeta la preferencia de movimiento reducido */
+        @media (max-width: 360px) {
+            .etiqueta {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+
+            .contador-amor {
+                padding: 30px 12px;
+            }
+
+            .contador-item span {
+                font-size: 23px;
+            }
+
+            .sobre-animado {
+                height: 200px;
+            }
+
+            .sobre-cuerpo::before {
+                border-width: 100px 0 0 150px;
+            }
+
+            .sobre-cuerpo::after {
+                border-width: 0 0 100px 150px;
+            }
+
+            .carta-contenido {
+                font-size: 13px;
+            }
+        }
+
+        /* =====================================
+           MOVIMIENTO REDUCIDO
+        ===================================== */
 
         @media (prefers-reduced-motion: reduce) {
             *,
@@ -834,11 +1319,11 @@
 
 <body>
 
-    <!-- FONDO CON ESTRELLAS Y CORAZONES -->
+    <!-- FONDO ANIMADO -->
 
     <div id="universo" aria-hidden="true"></div>
 
-    <!-- NAVEGACIÓN -->
+    <!-- ENCABEZADO -->
 
     <header>
         <div class="logo">
@@ -852,7 +1337,7 @@
 
     <main>
 
-        <!-- PORTADA PRINCIPAL -->
+        <!-- PORTADA -->
 
         <section class="portada">
 
@@ -875,13 +1360,16 @@
                 Esa persona eres tú, Deisy. 💗
             </p>
 
-            <button class="boton" onclick="irALaCarta()">
+            <button
+                type="button"
+                class="boton"
+                id="botonPortada">
+
                 Descubre tu pequeño universo ♥
+
             </button>
 
         </section>
-
-        <!-- SEPARADOR -->
 
         <div class="separador" aria-hidden="true">
             <span></span>
@@ -889,7 +1377,7 @@
             <span></span>
         </div>
 
-        <!-- CARTA -->
+        <!-- CARTA PRINCIPAL -->
 
         <section class="seccion" id="carta">
 
@@ -969,6 +1457,98 @@
 
         </section>
 
+        <!-- CONTADOR DE NUESTRA RELACIÓN -->
+
+        <section class="seccion" id="nuestro-tiempo">
+
+            <div class="contenedor">
+
+                <div class="encabezado-seccion">
+
+                    <span class="mini-titulo">
+                        Desde aquel día tan especial 💗
+                    </span>
+
+                    <h2 class="titulo-seccion">
+                        Nuestra historia de <span>amor</span>
+                    </h2>
+
+                    <p style="
+                        color: #c8bed8;
+                        margin-top: 18px;
+                        font-size: 14px;
+                    ">
+                        Desde el 26 de octubre de 2025,
+                        mi fecha favorita tiene una razón.
+                    </p>
+
+                </div>
+
+                <div class="contador-amor">
+
+                    <div class="contador-corazon">❤️</div>
+
+                    <p class="contador-etiqueta">
+                        TIEMPO JUNTAS
+                    </p>
+
+                    <div
+                        class="contador-cuadros"
+                        aria-label="Tiempo transcurrido desde el inicio de la relación"
+                        aria-live="off">
+
+                        <div class="contador-item">
+                            <span id="aniosAmor">0</span>
+                            <small>Años</small>
+                        </div>
+
+                        <div class="contador-item">
+                            <span id="mesesAmor">0</span>
+                            <small>Meses</small>
+                        </div>
+
+                        <div class="contador-item">
+                            <span id="diasAmor">0</span>
+                            <small>Días</small>
+                        </div>
+
+                        <div class="contador-item">
+                            <span id="horasAmor">0</span>
+                            <small>Horas</small>
+                        </div>
+
+                        <div class="contador-item">
+                            <span id="minutosAmor">0</span>
+                            <small>Minutos</small>
+                        </div>
+
+                        <div class="contador-item">
+                            <span id="segundosAmor">0</span>
+                            <small>Segundos</small>
+                        </div>
+
+                    </div>
+
+                    <p class="contador-mensaje">
+                        Cada segundo a tu lado es un pequeño
+                        regalo que guarda mi corazón. 💞
+                    </p>
+
+                    <div class="contador-fecha">
+                        ✨ 26 · 10 · 2025 ✨
+                    </div>
+
+                    <p class="contador-aniversario" id="mensajeAniversario">
+                        Nuestra historia sigue escribiendo
+                        momentos bonitos. ❤️
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
         <!-- PEQUEÑAS RAZONES -->
 
         <section class="seccion">
@@ -976,6 +1556,7 @@
             <div class="contenedor">
 
                 <div class="encabezado-seccion">
+
                     <span class="mini-titulo">
                         Pequeñas cosas, grandes sentimientos
                     </span>
@@ -983,6 +1564,7 @@
                     <h2 class="titulo-seccion">
                         Lo bonito de <span>ti</span>
                     </h2>
+
                 </div>
 
                 <div class="frases">
@@ -1029,6 +1611,159 @@
 
         </section>
 
+        <!-- CARTA INTERACTIVA -->
+
+        <section class="seccion seccion-interactiva"
+                 id="carta-interactiva">
+
+            <div class="contenedor">
+
+                <div class="encabezado-seccion">
+
+                    <span class="mini-titulo">
+                        Tengo algo para ti 💌
+                    </span>
+
+                    <h2 class="titulo-seccion">
+                        Una carta desde <span>mi corazón</span>
+                    </h2>
+
+                    <p style="
+                        color: #c8bed8;
+                        margin-top: 15px;
+                        font-size: 14px;
+                    ">
+                        Hay palabras que merecen abrirse despacito...
+                    </p>
+
+                </div>
+
+                <div class="zona-carta">
+
+                    <button
+                        type="button"
+                        class="sobre-animado"
+                        id="botonCarta"
+                        aria-label="Abrir la carta de amor para Deisy"
+                        aria-expanded="false"
+                        aria-controls="cartaAbierta">
+
+                        <span class="sobre-solapa"></span>
+                        <span class="sobre-cuerpo"></span>
+                        <span class="sobre-corazon">♥</span>
+
+                        <span class="sobre-texto">
+                            Para Deisy
+                        </span>
+
+                        <span class="sobre-instruccion">
+                            Toca aquí para abrir tu carta
+                        </span>
+
+                    </button>
+
+                    <article
+                        class="carta-abierta"
+                        id="cartaAbierta"
+                        aria-hidden="true"
+                        inert>
+
+                        <div class="carta-decoracion">
+                            ✦ ♥ ✦
+                        </div>
+
+                        <p class="carta-destinataria">
+                            Para mi niña bonita,
+                        </p>
+
+                        <h3 class="carta-titulo">
+                            Mi querida Deisy
+                        </h3>
+
+                        <div class="carta-contenido">
+
+                            <p>
+                                Si pudiera guardar todos los momentos
+                                bonitos que hemos vivido desde aquel
+                                26 de octubre de 2025, los guardaría
+                                en un lugar donde el tiempo nunca
+                                pudiera borrarlos.
+                            </p>
+
+                            <p>
+                                Desde que comenzamos esta historia,
+                                cada día se ha convertido en una nueva
+                                oportunidad para conocerte más,
+                                quererte más y descubrir todas esas
+                                pequeñas cosas que te hacen ser tú.
+                            </p>
+
+                            <p>
+                                Quería regalarte algo diferente,
+                                algo creado con mis propias manos
+                                y que llevara un poquito de lo que
+                                siento por ti.
+                            </p>
+
+                            <p>
+                                Quizás no existan palabras suficientes
+                                para explicar todo lo que puedes
+                                significar para mí, pero espero que
+                                cada detalle de esta carta te recuerde
+                                que eres alguien muy especial en mi vida.
+                            </p>
+
+                            <p>
+                                Quiero seguir sumando recuerdos contigo,
+                                compartir sonrisas, acompañarte en los
+                                días difíciles y celebrar contigo
+                                todas esas pequeñas cosas que hacen
+                                bonita nuestra historia.
+                            </p>
+
+                            <p class="carta-promesa">
+                                Hoy, mañana y en cada nuevo capítulo
+                                que podamos escribir juntas,
+                                quiero seguir eligiéndote. ❤️
+                            </p>
+
+                        </div>
+
+                        <div class="carta-firma">
+                            Con todo mi amor,
+
+                            <span>
+                                Tu novia ♥
+                            </span>
+                        </div>
+
+                        <div class="carta-final">
+                            26 · 10 · 2025
+
+                            <br>
+
+                            <span>
+                                El comienzo de nuestra historia.
+                            </span>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="boton boton-cerrar"
+                            id="cerrarCarta">
+
+                            Cerrar mi cartita 💗
+
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
         <!-- MENSAJE SECRETO -->
 
         <section class="seccion seccion-secreta">
@@ -1047,15 +1782,15 @@
                     </p>
 
                     <button
+                        type="button"
                         class="boton"
-                        id="botonSecreto"
-                        onclick="revelarMensaje()">
+                        id="botonSecreto">
 
                         Abrir mi mensaje secreto 💖
 
                     </button>
 
-                    <div id="mensajeSecreto">
+                    <div id="mensajeSecreto" hidden>
 
                         Deisy, si estás leyendo esto, quiero que
                         sonrías un poquito. 😊
@@ -1093,6 +1828,7 @@
     <!-- PIE DE PÁGINA -->
 
     <footer>
+
         <p>
             HECHO CON <span class="footer-corazon">♥</span>
             Y UN POQUITO DE MAGIA
@@ -1105,20 +1841,21 @@
         <p style="margin-top: 12px;">
             © <span id="anio"></span> · Un detalle especial para ti.
         </p>
+
     </footer>
 
-    <!-- JAVASCRIPT: ANIMACIONES E INTERACCIONES -->
+    <!-- JAVASCRIPT -->
 
     <script>
+        "use strict";
 
         // =====================================
-        // CREAR ESTRELLAS EN EL FONDO
+        // CREAR ESTRELLAS
         // =====================================
 
         const universo = document.getElementById("universo");
 
         for (let i = 0; i < 85; i++) {
-
             const estrella = document.createElement("div");
 
             estrella.className = "estrella";
@@ -1140,13 +1877,11 @@
             universo.appendChild(estrella);
         }
 
-
         // =====================================
         // CORAZONES FLOTANTES
         // =====================================
 
         function crearCorazon() {
-
             const corazon = document.createElement("div");
 
             corazon.className = "corazon-flotante";
@@ -1172,65 +1907,16 @@
             }, duracion * 1000);
         }
 
-        // Crear un corazón cada cierto tiempo.
-
         setInterval(crearCorazon, 650);
-
-
-        // =====================================
-        // BOTÓN PARA IR A LA CARTA
-        // =====================================
-
-        function irALaCarta() {
-
-            document.getElementById("carta").scrollIntoView({
-                behavior: "smooth"
-            });
-
-            lanzarCorazones(
-                window.innerWidth / 2,
-                window.innerHeight / 2
-            );
-        }
-
-
-        // =====================================
-        // REVELAR MENSAJE SECRETO
-        // =====================================
-
-        function revelarMensaje() {
-
-            const mensaje =
-                document.getElementById("mensajeSecreto");
-
-            const boton =
-                document.getElementById("botonSecreto");
-
-            mensaje.classList.add("visible");
-
-            boton.textContent = "Un abrazo para ti ❤️";
-
-            boton.disabled = true;
-
-            boton.style.opacity = "0.75";
-
-            lanzarCorazones(
-                window.innerWidth / 2,
-                window.innerHeight / 2
-            );
-        }
-
 
         // =====================================
         // EXPLOSIÓN DE CORAZONES
         // =====================================
 
         function lanzarCorazones(x, y) {
-
             const simbolos = ["❤️", "💗", "💕", "💖", "✨", "♥"];
 
             for (let i = 0; i < 24; i++) {
-
                 const particula = document.createElement("div");
 
                 particula.className = "particula";
@@ -1261,15 +1947,212 @@
             }
         }
 
+        // =====================================
+        // BOTÓN DE LA PORTADA
+        // =====================================
+
+        document
+            .getElementById("botonPortada")
+            .addEventListener("click", function () {
+
+                document.getElementById("carta").scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+                lanzarCorazones(
+                    window.innerWidth / 2,
+                    window.innerHeight / 2
+                );
+            });
 
         // =====================================
-        // CORAZONES AL TOCAR O HACER CLIC
+        // CONTADOR DE NUESTRA RELACIÓN
+        // Fecha de inicio: 26 de octubre de 2025
         // =====================================
 
-        document.addEventListener("click", function(evento) {
+        const fechaInicioAmor = new Date(2025, 9, 26, 0, 0, 0);
 
-            // Evita interferir con los botones principales.
+        function actualizarContadorAmor() {
+            const ahora = new Date();
 
+            const ids = [
+                "aniosAmor",
+                "mesesAmor",
+                "diasAmor",
+                "horasAmor",
+                "minutosAmor",
+                "segundosAmor"
+            ];
+
+            // Si la fecha de inicio aún no llega.
+            if (ahora < fechaInicioAmor) {
+                ids.forEach(id => {
+                    document.getElementById(id).textContent = "0";
+                });
+
+                document.getElementById("mensajeAniversario").textContent =
+                    "Nuestra historia comienza el 26 de octubre de 2025. ❤️";
+
+                return;
+            }
+
+            // Años y meses completos de calendario.
+            let anios =
+                ahora.getFullYear() - fechaInicioAmor.getFullYear();
+
+            let meses =
+                ahora.getMonth() - fechaInicioAmor.getMonth();
+
+            if (ahora.getDate() < fechaInicioAmor.getDate()) {
+                meses--;
+            }
+
+            if (meses < 0) {
+                anios--;
+                meses += 12;
+            }
+
+            // Fecha del último aniversario mensual.
+            const fechaBase = new Date(
+                fechaInicioAmor.getFullYear() + anios,
+                fechaInicioAmor.getMonth() + meses,
+                fechaInicioAmor.getDate()
+            );
+
+            let restante = ahora.getTime() - fechaBase.getTime();
+
+            const milisegundosDia = 24 * 60 * 60 * 1000;
+            const milisegundosHora = 60 * 60 * 1000;
+            const milisegundosMinuto = 60 * 1000;
+
+            const dias = Math.floor(restante / milisegundosDia);
+            restante %= milisegundosDia;
+
+            const horas = Math.floor(restante / milisegundosHora);
+            restante %= milisegundosHora;
+
+            const minutos = Math.floor(restante / milisegundosMinuto);
+
+            const segundos = Math.floor(
+                (restante % milisegundosMinuto) / 1000
+            );
+
+            document.getElementById("aniosAmor").textContent = anios;
+            document.getElementById("mesesAmor").textContent = meses;
+            document.getElementById("diasAmor").textContent = dias;
+            document.getElementById("horasAmor").textContent = horas;
+            document.getElementById("minutosAmor").textContent = minutos;
+            document.getElementById("segundosAmor").textContent = segundos;
+
+            // Mensaje especial para el primer aniversario.
+            const mensajeAniversario =
+                document.getElementById("mensajeAniversario");
+
+            if (anios === 1 && meses === 0 && dias === 0) {
+                mensajeAniversario.textContent =
+                    "¡Feliz primer aniversario, mi Deisy! Un año de nuestra historia y muchos recuerdos por crear. ❤️";
+            } else if (anios >= 1) {
+                mensajeAniversario.textContent =
+                    "Cada año juntas es una nueva página de nuestra historia. Gracias por compartirla conmigo. ❤️";
+            } else {
+                mensajeAniversario.textContent =
+                    "Nuestro primer año se acerca, y todavía nos quedan tantos recuerdos bonitos por crear. 💗";
+            }
+        }
+
+        actualizarContadorAmor();
+
+        setInterval(actualizarContadorAmor, 1000);
+
+        // =====================================
+        // ABRIR LA CARTA INTERACTIVA
+        // =====================================
+
+        const botonCarta = document.getElementById("botonCarta");
+        const cartaAbierta = document.getElementById("cartaAbierta");
+        const cerrarCarta = document.getElementById("cerrarCarta");
+
+        let temporizadorApertura = null;
+
+        botonCarta.addEventListener("click", function () {
+            if (botonCarta.classList.contains("abriendo")) {
+                return;
+            }
+
+            botonCarta.classList.add("abriendo");
+            botonCarta.setAttribute("aria-expanded", "true");
+
+            temporizadorApertura = setTimeout(function () {
+                botonCarta.hidden = true;
+
+                cartaAbierta.inert = false;
+
+                cartaAbierta.setAttribute("aria-hidden", "false");
+                cartaAbierta.classList.add("visible");
+
+                cartaAbierta.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+                lanzarCorazones(
+                    window.innerWidth / 2,
+                    window.innerHeight / 2
+                );
+
+                temporizadorApertura = null;
+            }, 550);
+        });
+
+        cerrarCarta.addEventListener("click", function () {
+            if (temporizadorApertura !== null) {
+                clearTimeout(temporizadorApertura);
+                temporizadorApertura = null;
+            }
+
+            cartaAbierta.classList.remove("visible");
+            cartaAbierta.inert = true;
+
+            cartaAbierta.setAttribute("aria-hidden", "true");
+
+            botonCarta.hidden = false;
+            botonCarta.classList.remove("abriendo");
+
+            botonCarta.setAttribute("aria-expanded", "false");
+
+            botonCarta.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        });
+
+        // =====================================
+        // MENSAJE SECRETO
+        // =====================================
+
+        const botonSecreto = document.getElementById("botonSecreto");
+        const mensajeSecreto = document.getElementById("mensajeSecreto");
+
+        botonSecreto.addEventListener("click", function () {
+            mensajeSecreto.hidden = false;
+            mensajeSecreto.classList.add("visible");
+
+            botonSecreto.textContent = "Un abrazo para ti ❤️";
+            botonSecreto.disabled = true;
+            botonSecreto.style.opacity = "0.75";
+
+            lanzarCorazones(
+                window.innerWidth / 2,
+                window.innerHeight / 2
+            );
+        });
+
+        // =====================================
+        // CORAZONES AL HACER CLIC
+        // =====================================
+
+        document.addEventListener("click", function (evento) {
             if (evento.target.closest("button")) {
                 return;
             }
@@ -1282,7 +2165,6 @@
             }
         });
 
-
         // =====================================
         // AÑO AUTOMÁTICO
         // =====================================
@@ -1294,3 +2176,21 @@
 
 </body>
 </html>
+
+💗 ¿Qué tienes ahora?
+
+    Contador en tiempo real: años, meses, días, horas, minutos y segundos desde que comenzaron su relación.
+    Carta interactiva: Deisy pulsa el sobre, este desaparece con una animación y aparece una carta romántica.
+    Lluvia de corazones: al abrir la carta y revelar el mensaje secreto.
+    Mensaje secreto: otro detalle que ella puede descubrir pulsando un botón.
+    Diseño adaptable: funciona en celulares y computadores.
+    Fecha especial: el contador utiliza el 26 de octubre de 2025 como inicio de su historia.
+
+Un último consejo
+
+Cuando lo abras, comprueba que el contador avance cada segundo y que el sobre abra la carta correctamente.
+
+Para que Deisy pueda verla desde su propio celular, tendrás que publicar la página en un servicio de alojamiento web. Abrir index.html en tu computador solo la hace visible localmente.
+
+Y recuerda: el 26 de octubre de 2026 cumplirán un año juntas. ❤️ Espero que esta página se convierta en un recuerdo muy bonito para las dos.
+
